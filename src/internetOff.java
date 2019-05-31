@@ -1,7 +1,7 @@
 public class internetOff implements ImovieDownloader {
 
     private DownloaderMachine machine;
-    private ImovieDownloader father;
+    private Internet father;
 
     public internetOff(DownloaderMachine DM, Internet father){
         this.father = father;
@@ -61,7 +61,7 @@ public class internetOff implements ImovieDownloader {
 
     @Override
     public void internetOn() {
-
+        father.setCurrState(father.getInternetOn());
     }
 
     @Override

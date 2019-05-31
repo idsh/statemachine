@@ -2,8 +2,6 @@ public class DownloaderMachine {
 
     //curr state
     public ImovieDownloader currMachineState;
-
-
     private int score;
     private int currFreeSpace;
     private int downloadingStatus;
@@ -36,6 +34,7 @@ public class DownloaderMachine {
 
     public void setTurnon(turnOn turnon) {
         this.turnon = turnon;
+
     }
 
     public ImovieDownloader getCurrMachineState() {
@@ -43,7 +42,9 @@ public class DownloaderMachine {
     }
 
     public void setCurrMachineState(ImovieDownloader currMachineState) {
+        this.currMachineState.exit();
         this.currMachineState = currMachineState;
+        this.currMachineState.entry();
     }
 
     public int getScore() {
@@ -75,7 +76,10 @@ public class DownloaderMachine {
     }
 
     public void setMovieSize(int movieSize) {
-        this.movieSize = movieSize;
+        if(movieSize==0) {
+            this.movieSize = movieSize;
+            currMachineState.QisNotEmpty();
+        }
     }
 
 

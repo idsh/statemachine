@@ -154,7 +154,8 @@ public class Download implements ImovieDownloader {
 
     @Override
     public void internetOn() {
-
+        this.entry();
+        currState.entry();
     }
 
     @Override
@@ -179,7 +180,7 @@ public class Download implements ImovieDownloader {
 
     @Override
     public void QisNotEmpty() {
-
+        currState.QisNotEmpty();
     }
 
     @Override
