@@ -1,5 +1,76 @@
 
 public class userStatus implements ImovieDownloader {
+
+    private DownloaderMachine machine;
+    private internetOn father;
+    private ImovieDownloader currState;
+
+    private beginner beginner;
+    private advanced advanced;
+    private professional professional;
+    private double speedRate;
+
+    public double getSpeedRate() {
+        return speedRate;
+    }
+
+    public void setSpeedRate(double speedRate) {
+        this.speedRate = speedRate;
+    }
+
+    public userStatus(DownloaderMachine DM, internetOn father){
+        currState = new beginner(DM,this);
+        speedRate = 1;
+        this.father = father;
+        this.machine = DM;
+
+        beginner = new beginner(DM,this);
+        advanced = new advanced(DM,this);
+        professional = new professional(DM,this);
+    }
+
+    public DownloaderMachine getMachine() {
+        return machine;
+    }
+
+    public void setMachine(DownloaderMachine machine) {
+        this.machine = machine;
+    }
+
+    public internetOn getFather() {
+        return father;
+    }
+
+    public void setFather(internetOn father) {
+        this.father = father;
+    }
+
+    public beginner getBeginner() {
+        return beginner;
+    }
+
+    public void setBeginner(beginner beginner) {
+        this.beginner = beginner;
+    }
+
+    public advanced getAdvanced() {
+        return advanced;
+    }
+
+    public void setAdvanced(advanced advanced) {
+        this.advanced = advanced;
+    }
+
+    public professional getProfessional() {
+        return professional;
+    }
+
+    public void setProfessional(professional professional) {
+        this.professional = professional;
+    }
+
+
+
     @Override
     public void restartMovie() {
 
@@ -157,6 +228,8 @@ public class userStatus implements ImovieDownloader {
 
     @Override
     public void setCurrState(ImovieDownloader state) {
-
+        currState.exit();
+        this.currState = state;
+        currState.entry();
     }
 }

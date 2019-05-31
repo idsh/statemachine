@@ -14,7 +14,7 @@ public class Watch implements ImovieDownloader{
         this.machine = DM;
         idleWatching = new idleWatching(DM,this);
         pauseMovie = new pauseMovie(DM,this);
-        watchingMovie = new WatchingMovie(machine,this);
+        watchingMovie = new WatchingMovie(DM,this);
     }
 
     public DownloaderMachine getMachine() {
@@ -34,9 +34,9 @@ public class Watch implements ImovieDownloader{
     }
 
     public void setCurrState(ImovieDownloader currState) {
-        currState.exit();
+        this.currState.exit();
         this.currState = currState;
-        currState.entry();
+        this.currState.entry();
     }
 
     public idleWatching getIdleWatching() {
