@@ -11,14 +11,6 @@ public class userStatus implements ImovieDownloader {
     private professional professional;
     private double speedRate;
 
-    public double getSpeedRate() {
-        return speedRate;
-    }
-
-    public void setSpeedRate(double speedRate) {
-        this.speedRate = speedRate;
-    }
-
     public userStatus(DownloaderMachine DM, turnOn father){
         currState = new beginner(DM,this);
         speedRate = 1;
@@ -30,176 +22,148 @@ public class userStatus implements ImovieDownloader {
         professional = new professional(DM,this);
     }
 
-    public DownloaderMachine getMachine() {
-        return machine;
+    public double getSpeedRate() {
+        return speedRate;
     }
 
-    public void setMachine(DownloaderMachine machine) {
-        this.machine = machine;
+    public void setSpeedRate(double speedRate) {
+        this.speedRate = speedRate;
     }
 
     public turnOn getFather() {
         return father;
     }
 
-    public void setFather(turnOn father) {
-        this.father = father;
-    }
-
     public beginner getBeginner() {
         return beginner;
-    }
-
-    public void setBeginner(beginner beginner) {
-        this.beginner = beginner;
     }
 
     public advanced getAdvanced() {
         return advanced;
     }
 
-    public void setAdvanced(advanced advanced) {
-        this.advanced = advanced;
-    }
-
     public professional getProfessional() {
         return professional;
     }
 
-    public void setProfessional(professional professional) {
-        this.professional = professional;
-    }
-
-
-
     @Override
     public void restartMovie() {
-
+        currState.restartMovie();
     }
 
     @Override
     public void holdMovie() {
-
+        currState.holdMovie();
     }
 
     @Override
     public void movieOff() {
-
+        currState.movieOff();
     }
 
     @Override
     public void resume() {
-
+        currState.resume();
     }
 
     @Override
     public void movieOn() {
-
+        currState.movieOn();
     }
 
     @Override
     public void errorFixed() {
-
+        currState.errorFixed();
     }
 
     @Override
     public void downloadError() {
-
+        currState.downloadError();
     }
 
     @Override
     public void downloadAborted() {
-
+        currState.downloadAborted();
     }
 
     @Override
     public void fileRequest() {
-
+        currState.fileRequest();
     }
 
     @Override
     public void internetOff() {
-
+        currState.internetOff();
     }
 
     @Override
     public void internetOn() {
-
+        currState.internetOn();
     }
 
     @Override
     public void turnOff() {
-
+        currState.turnOff();
     }
 
     @Override
     public void turnOn() {
-
+        currState.turnOn();
     }
 
     @Override
     public void removeRequest() {
-
+        currState.removeRequest();
     }
 
     @Override
     public void scoreChanged() {
-
+        currState.scoreChanged();
     }
 
     @Override
     public void QisNotEmpty() {
-
+        currState.QisNotEmpty();
     }
 
     @Override
     public void checkSpace() {
-
+        currState.checkSpace();
     }
 
     @Override
     public void updateDownloadStatus() {
-
+        currState.updateDownloadStatus();
     }
 
     @Override
     public void pauseMovie() {
-
+        currState.pauseMovie();
     }
 
     @Override
     public void startMovie() {
-
+        currState.startMovie();
     }
 
     @Override
     public void inDeletingMovie() {
-
+        currState.inDeletingMovie();
     }
 
     @Override
     public void watching() {
-
+        currState.watching();
     }
 
     @Override
     public void downloadingDone() {
-
-    }
-
-    @Override
-    public void entry() {
-        System.out.println("enter userStatus state");
-    }
-
-    @Override
-    public void exit() {
-        System.out.println("exit userStatus state");
+        currState.downloadingDone();
     }
 
     @Override
     public void startMovieFromBeginning() {
-
+        currState.startMovieFromBeginning();
     }
 
     @Override
@@ -209,13 +173,25 @@ public class userStatus implements ImovieDownloader {
 
     @Override
     public void setCurrState(ImovieDownloader state) {
-        currState.exit();
+        this.currState.exit();
         this.currState = state;
-        currState.entry();
+        this.currState.entry();
     }
 
     @Override
     public void initDownloadingStatus(int movieSize) {
+        currState.initDownloadingStatus(movieSize);
+    }
 
+    @Override
+    public void entry() {
+        System.out.println("enter userStatus state");
+        currState.entry();
+    }
+
+    @Override
+    public void exit() {
+        currState.exit();
+        System.out.println("exit userStatus state");
     }
 }

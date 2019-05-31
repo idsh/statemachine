@@ -38,58 +38,73 @@ public class turnOn implements ImovieDownloader{
 
     @Override
     public void restartMovie() {
-
+        requestQState.restartMovie();
+        userStatusState.restartMovie();
+        internetState.restartMovie();
     }
 
     @Override
     public void holdMovie() {
-
+        requestQState.holdMovie();
+        userStatusState.holdMovie();
+        internetState.holdMovie();
     }
 
     @Override
     public void movieOff() {
-
+        requestQState.movieOff();
+        userStatusState.movieOff();
+        internetState.movieOff();
     }
 
     @Override
     public void resume() {
-
+        requestQState.resume();
+        userStatusState.resume();
+        internetState.resume();
     }
 
     @Override
     public void movieOn() {
-
+        requestQState.movieOn();
+        userStatusState.movieOn();
+        internetState.movieOn();
     }
 
     @Override
     public void errorFixed() {
-
+        requestQState.errorFixed();
+        userStatusState.errorFixed();
+        internetState.errorFixed();
     }
 
     @Override
     public void downloadError() {
-
+        requestQState.downloadError();
+        userStatusState.downloadError();
+        internetState.downloadError();
     }
 
     @Override
     public void downloadAborted() {
-
+        requestQState.downloadAborted();
+        userStatusState.downloadAborted();
+        internetState.downloadAborted();
     }
 
     @Override
     public void fileRequest() {
-
+        requestQState.fileRequest();
+        userStatusState.fileRequest();
+        internetState.fileRequest();
     }
 
     @Override
     public void internetOff() {
         requestQState.internetOff();
-        requestQState.exit();
         userStatusState.internetOff();
-        userStatusState.exit();
         internetState.internetOff();
-        internetState.exit();
-
+        this.exit();
     }
 
     @Override
@@ -97,17 +112,21 @@ public class turnOn implements ImovieDownloader{
         requestQState.internetOn();
         userStatusState.internetOn();
         internetState.internetOn();
-
+        this.entry();
     }
 
     @Override
     public void removeRequest() {
-
+        requestQState.removeRequest();
+        userStatusState.removeRequest();
+        internetState.removeRequest();
     }
 
     @Override
     public void scoreChanged() {
-
+        requestQState.scoreChanged();
+        userStatusState.scoreChanged();
+        internetState.scoreChanged();
     }
 
     @Override
@@ -119,37 +138,87 @@ public class turnOn implements ImovieDownloader{
 
     @Override
     public void checkSpace() {
-
+        requestQState.checkSpace();
+        userStatusState.checkSpace();
+        internetState.checkSpace();
     }
 
     @Override
     public void updateDownloadStatus() {
-
+        requestQState.updateDownloadStatus();
+        userStatusState.updateDownloadStatus();
+        internetState.updateDownloadStatus();
     }
 
     @Override
     public void pauseMovie() {
-
+        requestQState.pauseMovie();
+        userStatusState.pauseMovie();
+        internetState.pauseMovie();
     }
 
     @Override
     public void startMovie() {
-
+        requestQState.startMovie();
+        userStatusState.startMovie();
+        internetState.startMovie();
     }
 
     @Override
     public void inDeletingMovie() {
-
+        requestQState.inDeletingMovie();
+        userStatusState.inDeletingMovie();
+        internetState.inDeletingMovie();
     }
 
     @Override
     public void watching() {
-
+        requestQState.watching();
+        userStatusState.watching();
+        internetState.watching();
     }
 
     @Override
     public void downloadingDone() {
+        requestQState.downloadingDone();
+        userStatusState.downloadingDone();
+        internetState.downloadingDone();
+    }
 
+    @Override
+    public void startMovieFromBeginning() {
+        requestQState.startMovieFromBeginning();
+        userStatusState.startMovieFromBeginning();
+        internetState.startMovieFromBeginning();
+    }
+
+    @Override
+    public ImovieDownloader getCurrState() {
+        return null;
+    }
+
+    @Override
+    public void setCurrState(ImovieDownloader state) {
+
+    }
+
+    @Override
+    public void initDownloadingStatus(int movieSize) {
+        requestQState.initDownloadingStatus(movieSize);
+        userStatusState.initDownloadingStatus(movieSize);
+        internetState.initDownloadingStatus(movieSize);
+    }
+
+    public ImovieDownloader getRequestQState() {
+        return requestQState;
+    }
+
+    public ImovieDownloader getUserStatusState() {
+        return userStatusState;
+    }
+  
+    public ImovieDownloader getInternetState() {
+        return internetState;
     }
 
     @Override
@@ -167,57 +236,4 @@ public class turnOn implements ImovieDownloader{
         internetState.exit();
         System.out.println("exit turnOn state");
     }
-
-    @Override
-    public void startMovieFromBeginning() {
-
-    }
-
-    @Override
-    public ImovieDownloader getCurrState() {
-        return null;
-    }
-
-    @Override
-    public void setCurrState(ImovieDownloader state) {
-
-    }
-
-    @Override
-    public void initDownloadingStatus(int movieSize) {
-
-    }
-
-    public DownloaderMachine getMachine() {
-        return machine;
-    }
-
-    public void setMachine(DownloaderMachine machine) {
-        this.machine = machine;
-    }
-
-    public ImovieDownloader getRequestQState() {
-        return requestQState;
-    }
-
-    public void setRequestQState(requestQueue requestQState) {
-        this.requestQState = requestQState;
-    }
-
-    public ImovieDownloader getUserStatusState() {
-        return userStatusState;
-    }
-
-    public void setUserStatusState(userStatus userStatusState) {
-        this.userStatusState = userStatusState;
-    }
-
-    public ImovieDownloader getInternetState() {
-        return internetState;
-    }
-
-    public void setInternetState(Internet internetState) {
-        this.internetState = internetState;
-    }
-
 }

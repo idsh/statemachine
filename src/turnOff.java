@@ -124,16 +124,6 @@ public class turnOff implements ImovieDownloader{
     }
 
     @Override
-    public void entry() {
-        System.out.println("enter turnOff state");
-    }
-
-    @Override
-    public void exit() {
-        System.out.println("exit turnOff state");
-    }
-
-    @Override
     public void startMovieFromBeginning() {
 
     }
@@ -151,5 +141,15 @@ public class turnOff implements ImovieDownloader{
     @Override
     public void initDownloadingStatus(int movieSize) {
 
+    }
+
+    @Override
+    public void entry() {
+        System.out.println("enter turnOff state");
+    }
+
+    @Override
+    public void exit() {
+        System.out.println("exit turnOff state");
     }
 }
