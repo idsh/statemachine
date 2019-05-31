@@ -189,12 +189,12 @@ public class userStatus implements ImovieDownloader {
 
     @Override
     public void entry() {
-
+        System.out.println("enter userStatus state");
     }
 
     @Override
     public void exit() {
-
+        System.out.println("exit userStatus state");
     }
 
     @Override

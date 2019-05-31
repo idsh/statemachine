@@ -219,12 +219,12 @@ public class Download implements ImovieDownloader {
 
     @Override
     public void entry() {
-
+        System.out.println("enter Download state");
     }
 
     @Override
     public void exit() {
-
+        System.out.println("exit Download state");
     }
 
     @Override

@@ -132,12 +132,12 @@ public class queueM implements ImovieDownloader {
 
     @Override
     public void entry() {
-
+        System.out.println("enter queueM state");
     }
 
     @Override
     public void exit() {
-
+        System.out.println("exit queueM state");
     }
 
     @Override

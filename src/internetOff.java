@@ -126,12 +126,12 @@ public class internetOff implements ImovieDownloader {
 
     @Override
     public void entry() {
-
+        System.out.println("enter internetOff state");
     }
 
     @Override
     public void exit() {
-
+        System.out.println("exit internetOff state");
     }
 
     @Override
