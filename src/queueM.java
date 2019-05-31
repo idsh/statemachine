@@ -1,8 +1,17 @@
 public class queueM implements ImovieDownloader {
 
 
-    public queueM() {
+    private DownloaderMachine machine;
 
+    private requestQueue father;
+
+    public queueM(DownloaderMachine DM, requestQueue father) {
+        machine = DM;
+        this.father = father;
+    }
+
+    public requestQueue getFather() {
+        return father;
     }
 
     @Override
@@ -72,7 +81,8 @@ public class queueM implements ImovieDownloader {
 
     @Override
     public void removeRequest() {
-
+        machine.setDownloadingStatus(0);
+        machine.setMovieSize(0);
     }
 
     @Override
@@ -131,6 +141,16 @@ public class queueM implements ImovieDownloader {
     }
 
     @Override
+    public void handleTurnOn() {
+
+    }
+
+    @Override
+    public void handleTurnOff() {
+
+    }
+
+    @Override
     public void entry() {
 
     }
@@ -156,12 +176,8 @@ public class queueM implements ImovieDownloader {
     }
 
     @Override
-    public void handleTurnOn() {
-
-    }
-
-    @Override
-    public void handleTurnOff() {
-
+    public void initDownloadingStatus(int movieSize) {
+        machine.setMovieSize(movieSize);
+        machine.setDownloadingStatus(0);
     }
 }

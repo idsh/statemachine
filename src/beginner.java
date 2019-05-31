@@ -1,5 +1,13 @@
 public class beginner implements ImovieDownloader {
 
+    private DownloaderMachine machine;
+    private userStatus father;
+
+    public beginner(DownloaderMachine Dm, userStatus father){
+        this.machine = Dm;
+        this.father = father;
+    }
+
     @Override
     public void restartMovie() {
 
@@ -72,7 +80,14 @@ public class beginner implements ImovieDownloader {
 
     @Override
     public void scoreChanged() {
-
+        if (machine.score > 3 && machine.score < 7){
+            father.setSpeedRate(1.2);
+            father.setCurrState(father.getAdvanced());
+        }
+        else if (machine.score > 6){
+            father.setSpeedRate(1.5);
+            father.setCurrState(father.getProfessional());
+        }
     }
 
     @Override
@@ -137,12 +152,12 @@ public class beginner implements ImovieDownloader {
 
     @Override
     public void entry() {
-
+        System.out.println("enter beginner state");
     }
 
     @Override
     public void exit() {
-
+        System.out.println("exit beginner state");
     }
 
     @Override

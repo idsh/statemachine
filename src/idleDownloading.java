@@ -1,7 +1,9 @@
 public class idleDownloading implements ImovieDownloader{
-
+    DownloaderMachine machine;
+    Download father;
     public idleDownloading(DownloaderMachine dm, Download download) {
-
+        this.machine = dm;
+        father = download;
     }
 
     @Override
@@ -46,6 +48,7 @@ public class idleDownloading implements ImovieDownloader{
 
     @Override
     public void fileRequest() {
+        father.setCurrState(father.getFirstSpaceCheck());
 
     }
 
@@ -141,13 +144,14 @@ public class idleDownloading implements ImovieDownloader{
 
     @Override
     public void entry() {
-
+        System.out.println("enter idleDownloading state");
     }
 
     @Override
     public void exit() {
-
+        System.out.println("exit idleDownloading state");
     }
+
 
     @Override
     public void startMovieFromBeginning() {

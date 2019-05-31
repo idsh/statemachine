@@ -1,7 +1,11 @@
+import java.util.concurrent.TimeUnit;
+
 public class secondSpaceCheck implements ImovieDownloader {
-
+    DownloaderMachine machine;
+    Download father;
     public secondSpaceCheck(DownloaderMachine dm, Download download) {
-
+        this.father = download;
+        this.machine = dm;
     }
 
     @Override
@@ -121,13 +125,27 @@ public class secondSpaceCheck implements ImovieDownloader {
 
     @Override
     public void entry() {
+        System.out.println("enter secondSpaceCheck state");
+        try {
+            TimeUnit.SECONDS.sleep(4);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if(machine.getCurrFreeSpace()>=machine.getMovieSize()){
+            machine.getCurrMachineState().initDownloadingStatus(machine.getMovieSize());
+            father.setCurrState(father.getDownloadingMovie());
 
+        }
+        else {
+            father.setCurrState(father.getDeletingMovie());
+        }
     }
 
     @Override
     public void exit() {
-
+        System.out.println("exit secondSpaceCheck state");
     }
+
 
     @Override
     public void startMovieFromBeginning() {
@@ -141,6 +159,11 @@ public class secondSpaceCheck implements ImovieDownloader {
 
     @Override
     public void setCurrState(ImovieDownloader state) {
+
+    }
+
+    @Override
+    public void initDownloadingStatus(int currentMovieSize) {
 
     }
 }

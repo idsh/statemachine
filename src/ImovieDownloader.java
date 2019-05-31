@@ -1,3 +1,4 @@
+import java.util.concurrent.TimeUnit;
 public interface ImovieDownloader {
 
     //events must have by those names
@@ -31,9 +32,8 @@ public interface ImovieDownloader {
     void startMovieFromBeginning();
     ImovieDownloader getCurrState();
     void setCurrState(ImovieDownloader state);
+    void initDownloadingStatus(int movieSize);
 
 
-
-
-
+    void initDownloadingStatus(int currentMovieSize);
 }

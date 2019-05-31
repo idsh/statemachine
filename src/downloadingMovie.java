@@ -1,7 +1,21 @@
 public class downloadingMovie implements ImovieDownloader {
 
-    public downloadingMovie(DownloaderMachine dm, Download download) {
+    private DownloaderMachine machine;
+    private Download father;
 
+    public downloadingMovie(DownloaderMachine dm, Download father) {
+        machine = dm;
+        this.father = father;
+    }
+
+    public void entry() {
+        System.out.println("enter downloadingMovie state");
+        machine.setCurrFreeSpace(machine.getCurrFreeSpace() - machine.getMovieSize());
+        machine.setDownloadingStatus(66);
+    }
+
+    public void exit() {
+        System.out.println("exit downloadingMovie state");
     }
 
     @Override
@@ -36,12 +50,13 @@ public class downloadingMovie implements ImovieDownloader {
 
     @Override
     public void downloadError() {
-
+        father.setCurrState(father.getErrorOccurred());
     }
 
     @Override
     public void downloadAborted() {
-
+        machine.setCurrFreeSpace(machine.getCurrFreeSpace() + machine.getMovieSize());
+        father.setCurrState(father.getDeletingMovie());
     }
 
     @Override
@@ -116,7 +131,10 @@ public class downloadingMovie implements ImovieDownloader {
 
     @Override
     public void downloadingDone() {
-
+        machine.setScore(machine.getScore() + 1);
+        machine.getCurrMachineState().removeRequest();
+        machine.getCurrMachineState().scoreChanged();
+        father.setCurrState(father.getIdleDownloading());
     }
 
     @Override
@@ -140,16 +158,6 @@ public class downloadingMovie implements ImovieDownloader {
     }
 
     @Override
-    public void entry() {
-
-    }
-
-    @Override
-    public void exit() {
-
-    }
-
-    @Override
     public void startMovieFromBeginning() {
 
     }
@@ -161,6 +169,11 @@ public class downloadingMovie implements ImovieDownloader {
 
     @Override
     public void setCurrState(ImovieDownloader state) {
+
+    }
+
+    @Override
+    public void initDownloadingStatus(int movieSize) {
 
     }
 }
