@@ -185,13 +185,14 @@ public class Watch implements ImovieDownloader{
 
     @Override
     public void entry() {
-
+        System.out.println("enter Watch state");
     }
 
     @Override
     public void exit() {
-
+        System.out.println("exit Watch state");
     }
+
 
     @Override
     public void startMovieFromBeginning() {
