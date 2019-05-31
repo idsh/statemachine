@@ -39,163 +39,154 @@ public class Watch implements ImovieDownloader{
         this.currState.entry();
     }
 
-    @Override
-    public void initDownloadingStatus(int movieSize) {
-
-    }
-
     public idleWatching getIdleWatching() {
         return idleWatching;
-    }
-
-    public void setIdleWatching(idleWatching idleWatching) {
-        this.idleWatching = idleWatching;
     }
 
     public pauseMovie getPauseMovie() {
         return pauseMovie;
     }
 
-    public void setPauseMovie(pauseMovie pauseMovie) {
-        this.pauseMovie = pauseMovie;
-    }
-
     public WatchingMovie getWatchingMovie() {
         return watchingMovie;
     }
 
-    public void setWatchingMovie(WatchingMovie watchingMovie) {
-        this.watchingMovie = watchingMovie;
+    @Override
+    public void initDownloadingStatus(int movieSize) {
+        currState.initDownloadingStatus(movieSize);
     }
+
 
     @Override
     public void restartMovie() {
-
+        currState.restartMovie();
     }
 
     @Override
     public void holdMovie() {
-
+        currState.holdMovie();
     }
 
     @Override
     public void movieOff() {
-
+        currState.movieOff();
     }
 
     @Override
     public void resume() {
-
+        currState.resume();
     }
 
     @Override
     public void movieOn() {
-
+        currState.movieOn();
     }
 
     @Override
     public void errorFixed() {
-
+        currState.errorFixed();
     }
 
     @Override
     public void downloadError() {
-
+        currState.downloadError();
     }
 
     @Override
     public void downloadAborted() {
-
+        currState.downloadAborted();
     }
 
     @Override
     public void fileRequest() {
-
+        currState.fileRequest();
     }
 
     @Override
     public void internetOff() {
-
+        currState.internetOff();
     }
 
     @Override
     public void internetOn() {
-
+        currState.internetOn();
     }
 
     @Override
     public void turnOff() {
-
+        currState.turnOff();
     }
 
     @Override
     public void turnOn() {
-
+        currState.turnOn();
     }
 
     @Override
     public void removeRequest() {
-
+        currState.removeRequest();
     }
 
     @Override
     public void scoreChanged() {
-
+        currState.scoreChanged();
     }
 
     @Override
     public void QisNotEmpty() {
-
+        currState.QisNotEmpty();
     }
 
     @Override
     public void checkSpace() {
-
+        currState.checkSpace();
     }
 
     @Override
     public void updateDownloadStatus() {
-
+        currState.updateDownloadStatus();
     }
 
     @Override
     public void pauseMovie() {
-
+        currState.pauseMovie();
     }
 
     @Override
     public void startMovie() {
-
+        currState.startMovie();
     }
 
     @Override
     public void inDeletingMovie() {
-
+        currState.inDeletingMovie();
     }
 
     @Override
     public void watching() {
-
+        currState.watching();
     }
 
     @Override
     public void downloadingDone() {
-
+        currState.downloadingDone();
     }
 
     @Override
     public void entry() {
         System.out.println("enter Watch state");
+        currState.entry();
     }
 
     @Override
     public void exit() {
+        currState.exit();
         System.out.println("exit Watch state");
     }
 
 
     @Override
     public void startMovieFromBeginning() {
-
+        currState.startMovieFromBeginning();
     }
 }
