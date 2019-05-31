@@ -1,47 +1,166 @@
-public class secondSpaceCheck extends Download {
+public class secondSpaceCheck implements ImovieDownloader {
 
-    @Override
-    void idleDownloadling() {
-
-    }
-
-    @Override
-    void firstSpaceCheck() {
+    public secondSpaceCheck(DownloaderMachine dm, Download download) {
 
     }
 
     @Override
-    void secondSpaceCheck() {
+    public void restartMovie() {
 
     }
 
     @Override
-    void deletingMovie() {
+    public void holdMovie() {
 
     }
 
     @Override
-    void errorOcurred() {
+    public void movieOff() {
 
     }
 
     @Override
-    void downloadingMovie() {
+    public void resume() {
 
     }
 
     @Override
-    void idleWatching() {
+    public void movieOn() {
 
     }
 
     @Override
-    void watchingMovie() {
+    public void errorFixed() {
 
     }
 
     @Override
-    void pauseMovie() {
+    public void downloadError() {
+
+    }
+
+    @Override
+    public void downloadAborted() {
+
+    }
+
+    @Override
+    public void fileRequest() {
+
+    }
+
+    @Override
+    public void internetOff() {
+
+    }
+
+    @Override
+    public void internetOn() {
+
+    }
+
+    @Override
+    public void turnOff() {
+
+    }
+
+    @Override
+    public void turnOn() {
+
+    }
+
+    @Override
+    public void removeRequest() {
+
+    }
+
+    @Override
+    public void scoreChanged() {
+
+    }
+
+    @Override
+    public void QisNotEmpty() {
+
+    }
+
+    @Override
+    public void checkSpace() {
+
+    }
+
+    @Override
+    public void updateDownloadStatus() {
+
+    }
+
+    @Override
+    public void pauseMovie() {
+
+    }
+
+    @Override
+    public void startMovie() {
+
+    }
+
+    @Override
+    public void inDeletingMovie() {
+
+    }
+
+    @Override
+    public void watching() {
+
+    }
+
+    @Override
+    public void downloadingDone() {
+
+    }
+
+    @Override
+    public void handleInternetOn() {
+
+    }
+
+    @Override
+    public void handleInternetOff() {
+
+    }
+
+    @Override
+    public void handleTurnOn() {
+
+    }
+
+    @Override
+    public void handleTurnOff() {
+
+    }
+
+    @Override
+    public void entry() {
+
+    }
+
+    @Override
+    public void exit() {
+
+    }
+
+    @Override
+    public void startMovieFromBeginning() {
+
+    }
+
+    @Override
+    public ImovieDownloader getCurrState() {
+        return null;
+    }
+
+    @Override
+    public void setCurrState(ImovieDownloader state) {
 
     }
 }

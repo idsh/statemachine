@@ -1,4 +1,4 @@
-public class beginner extends userStatus {
+public class beginner implements ImovieDownloader {
 
     @Override
     public void restartMovie() {
@@ -132,6 +132,31 @@ public class beginner extends userStatus {
 
     @Override
     public void handleTurnOff() {
+
+    }
+
+    @Override
+    public void entry() {
+
+    }
+
+    @Override
+    public void exit() {
+
+    }
+
+    @Override
+    public void startMovieFromBeginning() {
+
+    }
+
+    @Override
+    public ImovieDownloader getCurrState() {
+        return null;
+    }
+
+    @Override
+    public void setCurrState(ImovieDownloader state) {
 
     }
 }

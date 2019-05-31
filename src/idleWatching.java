@@ -1,17 +1,129 @@
-public class idleWatching extends Watch {
+public class idleWatching implements ImovieDownloader  {
+
+    private DownloaderMachine machine;
+    private Watch father;
+
+    public idleWatching(DownloaderMachine Dm, Watch father){
+        this.machine = Dm;
+        this.father = father;
+    }
 
     @Override
-    void idleWatching() {
+    public void restartMovie() {
 
     }
 
     @Override
-    void watchingMovie() {
+    public void holdMovie() {
 
     }
 
     @Override
-    void pauseMoive() {
+    public void movieOff() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void movieOn() {
+
+    }
+
+    @Override
+    public void errorFixed() {
+
+    }
+
+    @Override
+    public void downloadError() {
+
+    }
+
+    @Override
+    public void downloadAborted() {
+
+    }
+
+    @Override
+    public void fileRequest() {
+
+    }
+
+    @Override
+    public void internetOff() {
+
+    }
+
+    @Override
+    public void internetOn() {
+
+    }
+
+    @Override
+    public void turnOff() {
+
+    }
+
+    @Override
+    public void turnOn() {
+
+    }
+
+    @Override
+    public void removeRequest() {
+
+    }
+
+    @Override
+    public void scoreChanged() {
+
+    }
+
+    @Override
+    public void QisNotEmpty() {
+
+    }
+
+    @Override
+    public void checkSpace() {
+
+    }
+
+    @Override
+    public void updateDownloadStatus() {
+
+    }
+
+    @Override
+    public void pauseMovie() {
+
+    }
+
+    @Override
+    public void startMovie() {
+
+    }
+
+    @Override
+    public void inDeletingMovie() {
+
+    }
+
+    @Override
+    public void watching() {
+        if (machine.downloadingStatus > 20 &&
+                ((internetOn)father.getFather()).getDownloadState().getCurrState() instanceof downloadingMovie){
+            machine.currMachineState.startMovieFromBeginning();
+            father.setCurrState(father.getWatchingMovie());
+        }
+    }
+
+    @Override
+    public void downloadingDone() {
 
     }
 
@@ -22,6 +134,41 @@ public class idleWatching extends Watch {
 
     @Override
     public void handleInternetOff() {
+
+    }
+
+    @Override
+    public void handleTurnOn() {
+
+    }
+
+    @Override
+    public void handleTurnOff() {
+
+    }
+
+    @Override
+    public void entry() {
+        System.out.println("enter idleWatching state");
+    }
+
+    @Override
+    public void exit() {
+        System.out.println("exit idleWatching state");
+    }
+
+    @Override
+    public void startMovieFromBeginning() {
+
+    }
+
+    @Override
+    public ImovieDownloader getCurrState() {
+        return null;
+    }
+
+    @Override
+    public void setCurrState(ImovieDownloader state) {
 
     }
 }
