@@ -147,7 +147,7 @@ public class deletingMovie implements ImovieDownloader {
     @Override
     public void entry() {
         System.out.println("enter deletingMovie state");
-        machine.score++;
+        machine.score--;
         machine.currMachineState.scoreChanged();
         machine.currMachineState.removeRequest();
         father.setCurrState(father.getIdleDownloading());
