@@ -16,23 +16,16 @@ public class turnOn implements ImovieDownloader{
     @Override
     public void turnOff() {
         requestQState.turnOff();
-        requestQState.exit();
         userStatusState.turnOff();
-        userStatusState.exit();
         internetState.turnOff();
-        internetState.exit();
-        this.exit();
+        machine.setCurrMachineState(machine.getTurnoff());
     }
 
     @Override
     public void turnOn() {
-        this.entry();
         requestQState.turnOn();
-        requestQState.entry();
         userStatusState.turnOn();
-        userStatusState.entry();
         internetState.turnOn();
-        internetState.entry();
     }
 
 
@@ -104,7 +97,6 @@ public class turnOn implements ImovieDownloader{
         requestQState.internetOff();
         userStatusState.internetOff();
         internetState.internetOff();
-        this.exit();
     }
 
     @Override
@@ -112,7 +104,6 @@ public class turnOn implements ImovieDownloader{
         requestQState.internetOn();
         userStatusState.internetOn();
         internetState.internetOn();
-        this.entry();
     }
 
     @Override

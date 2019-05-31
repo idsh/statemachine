@@ -13,15 +13,11 @@ public class requestQueue implements ImovieDownloader {
     @Override
     public void turnOff() {
         queueM.turnOff();
-        queueM.exit();
-        this.exit();
     }
 
     @Override
     public void turnOn() {
-        this.entry();
         queueM.turnOn();
-        queueM.entry();
     }
 
     @Override

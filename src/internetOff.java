@@ -61,7 +61,7 @@ public class internetOff implements ImovieDownloader {
 
     @Override
     public void internetOn() {
-        father.setCurrState(father.getInternetOn());
+
     }
 
     @Override

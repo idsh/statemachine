@@ -15,80 +15,78 @@ public class Internet implements ImovieDownloader {
     @Override
     public void turnOff() {
         currState.turnOff();
-        currState.exit();
-        this.exit();
     }
 
     @Override
     public void turnOn() {
-        this.entry();
         currState.turnOn();
-        currState.entry();
     }
 
     @Override
     public void restartMovie() {
-
+        currState.restartMovie();
     }
 
     @Override
     public void holdMovie() {
-
+        currState.holdMovie();
     }
 
     @Override
     public void movieOff() {
-
+        currState.movieOff();
     }
 
     @Override
     public void resume() {
-
+        currState.resume();
     }
 
     @Override
     public void movieOn() {
-
+        currState.movieOn();
     }
 
     @Override
     public void errorFixed() {
-
+        currState.errorFixed();
     }
 
     @Override
     public void downloadError() {
-
+        currState.downloadError();
     }
 
     @Override
     public void downloadAborted() {
-
+        currState.downloadAborted();
     }
 
     @Override
     public void fileRequest() {
-
+        currState.fileRequest();
     }
 
     @Override
     public void internetOff() {
-
+        currState.internetOff();
+        setCurrState(internetOff);
     }
 
     @Override
     public void internetOn() {
         currState.internetOn();
+        setCurrState(internetOn);
     }
 
     @Override
     public void removeRequest() {
-
+        currState.removeRequest();
     }
 
     @Override
     public void scoreChanged() {
-
+        currState.scoreChanged();
     }
 
     @Override
@@ -98,58 +96,48 @@ public class Internet implements ImovieDownloader {
 
     @Override
     public void checkSpace() {
-
+        currState.checkSpace();
     }
 
     @Override
     public void updateDownloadStatus() {
-
+        currState.updateDownloadStatus();
     }
 
     @Override
     public void pauseMovie() {
-
+        currState.pauseMovie();
     }
 
     @Override
     public void startMovie() {
-
+        currState.startMovie();
     }
 
     @Override
     public void inDeletingMovie() {
-
+        currState.inDeletingMovie();
     }
 
     @Override
     public void watching() {
-
+        currState.watching();
     }
 
     @Override
     public void downloadingDone() {
-
+        currState.downloadingDone();
     }
 
-
-    @Override
-    public void entry() {
-        System.out.println("enter Internet state");
-    }
-
-    @Override
-    public void exit() {
-        System.out.println("exit Internet state");
-    }
 
     @Override
     public void startMovieFromBeginning() {
-
+        currState.startMovieFromBeginning();
     }
 
     @Override
     public ImovieDownloader getCurrState() {
-        return null;
+        return currState;
     }
 
     @Override
@@ -161,30 +149,26 @@ public class Internet implements ImovieDownloader {
 
     @Override
     public void initDownloadingStatus(int movieSize) {
-
+        currState.initDownloadingStatus(movieSize);
     }
 
     public ImovieDownloader getInternetOn() {
         return internetOn;
     }
 
-    public void setInternetOn(ImovieDownloader internetOn) {
-        this.internetOn = internetOn;
-    }
-
     public ImovieDownloader getInternetOff() {
         return internetOff;
     }
 
-    public void setInternetOff(ImovieDownloader internetOff) {
-        this.internetOff = internetOff;
+    @Override
+    public void entry() {
+        System.out.println("enter Internet state");
+        currState.entry();
     }
 
-    public DownloaderMachine getMachine() {
-        return machine;
-    }
-
-    public void setMachine(DownloaderMachine machine) {
-        this.machine = machine;
+    @Override
+    public void exit() {
+        currState.exit();
+        System.out.println("exit Internet state");
     }
 }

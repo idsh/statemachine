@@ -10,12 +10,12 @@ public class turnOff implements ImovieDownloader{
 
     @Override
     public void turnOff() {
-        this.entry();
+
     }
 
     @Override
     public void turnOn() {
-        this.exit();
+        machine.setCurrMachineState(machine.getTurnon());
     }
   
     @Override
