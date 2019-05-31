@@ -1,11 +1,6 @@
 public class turnOff implements ImovieDownloader{
 
-    private DownloaderMachine currState;
-
-    public turnOff(DownloaderMachine currState) {
-        this.currState = currState;
-    }
-
+  
     @Override
     public void restartMovie() {
 
@@ -141,6 +136,7 @@ public class turnOff implements ImovieDownloader{
 
     }
 
+  
     @Override
     public void entry() {
 

@@ -8,8 +8,8 @@ public abstract class turnOn implements ImovieDownloader{
     public turnOn(DownloaderMachine machine) {
         this.machine = machine;
         requestQState = new requestQueue(machine);
-        userStatus = new userStatus(machine);
-        internetState = new
+        userStatusState = new userStatus(machine);
+        internetState = new Internet(machine);
     }
 
     @Override
