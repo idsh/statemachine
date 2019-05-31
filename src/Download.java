@@ -118,7 +118,8 @@ public class Download implements ImovieDownloader {
 
     @Override
     public void internetOn() {
-        currState.internetOn();
+        this.entry();
+        currState.entry();
     }
 
     @Override

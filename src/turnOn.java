@@ -1,9 +1,9 @@
 public class turnOn implements ImovieDownloader{
 
     private DownloaderMachine machine;
-    private ImovieDownloader requestQState;
-    private ImovieDownloader userStatusState;
-    private ImovieDownloader internetState;
+    private requestQueue requestQState;
+    private userStatus userStatusState;
+    private Internet internetState;
 
     public turnOn(DownloaderMachine machine) {
         this.machine = machine;
@@ -104,6 +104,7 @@ public class turnOn implements ImovieDownloader{
         requestQState.internetOff();
         userStatusState.internetOff();
         internetState.internetOff();
+        this.exit();
     }
 
     @Override
@@ -111,6 +112,7 @@ public class turnOn implements ImovieDownloader{
         requestQState.internetOn();
         userStatusState.internetOn();
         internetState.internetOn();
+        this.entry();
     }
 
     @Override
@@ -214,11 +216,10 @@ public class turnOn implements ImovieDownloader{
     public ImovieDownloader getUserStatusState() {
         return userStatusState;
     }
-
+  
     public ImovieDownloader getInternetState() {
         return internetState;
     }
-
 
     @Override
     public void entry() {
