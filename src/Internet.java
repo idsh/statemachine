@@ -1,4 +1,31 @@
 public class Internet implements ImovieDownloader {
+
+    private ImovieDownloader internetOn;
+    private ImovieDownloader internetOff;
+    private ImovieDownloader currState;
+    private DownloaderMachine machine;
+
+    public Internet(DownloaderMachine machine) {
+        this.internetOn = new internetOn(machine, this);
+        this.internetOff = new internetOff(machine, this);
+        this.currState = internetOff;
+        this.machine = machine;
+    }
+
+    @Override
+    public void turnOff() {
+        currState.turnOff();
+        currState.exit();
+        this.exit();
+    }
+
+    @Override
+    public void turnOn() {
+        this.entry();
+        currState.turnOn();
+        currState.entry();
+    }
+
     @Override
     public void restartMovie() {
 
@@ -51,16 +78,6 @@ public class Internet implements ImovieDownloader {
 
     @Override
     public void internetOn() {
-
-    }
-
-    @Override
-    public void turnOff() {
-
-    }
-
-    @Override
-    public void turnOn() {
 
     }
 
@@ -136,12 +153,12 @@ public class Internet implements ImovieDownloader {
 
     @Override
     public void entry() {
-
+        System.out.println("enter Internet state");
     }
 
     @Override
     public void exit() {
-
+        System.out.println("exit Internet state");
     }
 
     @Override

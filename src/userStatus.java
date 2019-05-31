@@ -1,6 +1,7 @@
 
 public class userStatus implements ImovieDownloader {
 
+
     private DownloaderMachine machine;
     private internetOn father;
     private ImovieDownloader currState;

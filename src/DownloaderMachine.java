@@ -3,18 +3,40 @@ public class DownloaderMachine {
     //curr state
     public ImovieDownloader currMachineState;
 
-    private int score=0;
-    private int currFreeSpace = 100;
-    private int downloadingStatus = 0;
-    private int movieSize = 0;
 
+    private int score;
+    private int currFreeSpace;
+    private int downloadingStatus;
+    private int movieSize;
+    private turnOff turnoff;
+    private turnOn turnon;
 
-    public DownloaderMachine(){
-        turnOff turnoff = new turnOff(this);
-        turnOn turnon = new turnOn(this);
-        currMachineState = turnoff;
+    public DownloaderMachine() {
+        this.score = 0;
+        this.currFreeSpace = 100;
+        this.downloadingStatus = 0;
+        this.movieSize = 0;
+        this.turnoff = new turnOff(this);
+        this.turnon = new turnOn(this);
+        this.currMachineState = turnoff;
+        this.currMachineState.entry();
     }
 
+    public turnOff getTurnoff() {
+        return turnoff;
+    }
+
+    public void setTurnoff(turnOff turnoff) {
+        this.turnoff = turnoff;
+    }
+
+    public turnOn getTurnon() {
+        return turnon;
+    }
+
+    public void setTurnon(turnOn turnon) {
+        this.turnon = turnon;
+    }
 
     public ImovieDownloader getCurrMachineState() {
         return currMachineState;
