@@ -1,4 +1,4 @@
-public class advanced implements ImovieDownloader {
+public class advanced extends userStatus {
     @Override
     public void handleBeginner() {
 

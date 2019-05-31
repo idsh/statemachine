@@ -1,4 +1,4 @@
-public class idleDownloading implements ImovieDownloader{
+public class idleDownloading extends Download{
 
     @Override
     void idleDownloadling() {

@@ -1,5 +1,8 @@
 public interface ImovieDownloader {
-
+    static public int score=0;
+    static public int currFreeSpace = 100;
+    static public int downloadingStatus = 0;
+    static public int movieSize = 0;
     //events must have by those names
     void restartMovie();
     void holdMovie();
