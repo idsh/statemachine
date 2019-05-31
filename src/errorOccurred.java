@@ -1,7 +1,13 @@
+import java.util.concurrent.TimeUnit;
+
 public class errorOccurred implements ImovieDownloader{
 
-    public errorOccurred(DownloaderMachine dm, Download download) {
+    private DownloaderMachine machine;
+    private Download father;
 
+    public errorOccurred(DownloaderMachine dm, Download father) {
+        machine = dm;
+        this.father = father;
     }
 
     @Override
@@ -31,7 +37,7 @@ public class errorOccurred implements ImovieDownloader{
 
     @Override
     public void errorFixed() {
-
+        father.setCurrState(father.getDownloadingMovie());
     }
 
     @Override
@@ -141,12 +147,19 @@ public class errorOccurred implements ImovieDownloader{
 
     @Override
     public void entry() {
-
+        System.out.println("enter errorOccured state");
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        machine.setCurrFreeSpace(machine.getCurrFreeSpace() + machine.getMovieSize());
+        father.setCurrState(father.getDeletingMovie());
     }
 
     @Override
     public void exit() {
-
+        System.out.println("exit errorOccured state");
     }
 
     @Override
@@ -161,6 +174,11 @@ public class errorOccurred implements ImovieDownloader{
 
     @Override
     public void setCurrState(ImovieDownloader state) {
+
+    }
+
+    @Override
+    public void initDownloadingStatus(int movieSize) {
 
     }
 }
