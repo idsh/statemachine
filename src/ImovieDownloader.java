@@ -33,6 +33,8 @@ public interface ImovieDownloader {
     void handleInternetOff();
     void handleTurnOn();
     void handleTurnOff();
+    void entry();
+    void exit();
 
 
 
