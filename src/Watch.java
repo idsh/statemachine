@@ -39,6 +39,11 @@ public class Watch implements ImovieDownloader{
         this.currState.entry();
     }
 
+    @Override
+    public void initDownloadingStatus(int movieSize) {
+
+    }
+
     public idleWatching getIdleWatching() {
         return idleWatching;
     }
@@ -175,26 +180,6 @@ public class Watch implements ImovieDownloader{
 
     @Override
     public void downloadingDone() {
-
-    }
-
-    @Override
-    public void handleInternetOn() {
-
-    }
-
-    @Override
-    public void handleInternetOff() {
-
-    }
-
-    @Override
-    public void handleTurnOn() {
-
-    }
-
-    @Override
-    public void handleTurnOff() {
 
     }
 

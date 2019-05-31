@@ -80,11 +80,11 @@ public class professional implements ImovieDownloader {
 
     @Override
     public void scoreChanged() {
-        if (machine.score < 7 && machine.score > 3){
+        if (machine.getScore() < 7 && machine.getScore() > 3){
             father.setSpeedRate(1.2);
             father.setCurrState(father.getAdvanced());
         }
-        else if (machine.score < 4){
+        else if (machine.getScore() < 4){
             father.setSpeedRate(1);
             father.setCurrState(father.getBeginner());
         }
@@ -130,25 +130,6 @@ public class professional implements ImovieDownloader {
 
     }
 
-    @Override
-    public void handleInternetOn() {
-
-    }
-
-    @Override
-    public void handleInternetOff() {
-
-    }
-
-    @Override
-    public void handleTurnOn() {
-
-    }
-
-    @Override
-    public void handleTurnOff() {
-
-    }
 
     @Override
     public void entry() {
@@ -172,6 +153,11 @@ public class professional implements ImovieDownloader {
 
     @Override
     public void setCurrState(ImovieDownloader state) {
+
+    }
+
+    @Override
+    public void initDownloadingStatus(int movieSize) {
 
     }
 }

@@ -3,7 +3,7 @@ public class userStatus implements ImovieDownloader {
 
 
     private DownloaderMachine machine;
-    private internetOn father;
+    private turnOn father;
     private ImovieDownloader currState;
 
     private beginner beginner;
@@ -19,7 +19,7 @@ public class userStatus implements ImovieDownloader {
         this.speedRate = speedRate;
     }
 
-    public userStatus(DownloaderMachine DM, internetOn father){
+    public userStatus(DownloaderMachine DM, turnOn father){
         currState = new beginner(DM,this);
         speedRate = 1;
         this.father = father;
@@ -38,11 +38,11 @@ public class userStatus implements ImovieDownloader {
         this.machine = machine;
     }
 
-    public internetOn getFather() {
+    public turnOn getFather() {
         return father;
     }
 
-    public void setFather(internetOn father) {
+    public void setFather(turnOn father) {
         this.father = father;
     }
 
@@ -188,26 +188,6 @@ public class userStatus implements ImovieDownloader {
     }
 
     @Override
-    public void handleInternetOn() {
-
-    }
-
-    @Override
-    public void handleInternetOff() {
-
-    }
-
-    @Override
-    public void handleTurnOn() {
-
-    }
-
-    @Override
-    public void handleTurnOff() {
-
-    }
-
-    @Override
     public void entry() {
 
     }
@@ -232,5 +212,10 @@ public class userStatus implements ImovieDownloader {
         currState.exit();
         this.currState = state;
         currState.entry();
+    }
+
+    @Override
+    public void initDownloadingStatus(int movieSize) {
+
     }
 }

@@ -37,6 +37,11 @@ public class Download implements ImovieDownloader {
         this.currState.entry();
     }
 
+    @Override
+    public void initDownloadingStatus(int movieSize) {
+
+    }
+
     public idleDownloading getIdleDownloading() {
         return idleDownloading;
     }

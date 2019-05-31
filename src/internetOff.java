@@ -125,26 +125,6 @@ public class internetOff implements ImovieDownloader {
     }
 
     @Override
-    public void handleInternetOn() {
-
-    }
-
-    @Override
-    public void handleInternetOff() {
-
-    }
-
-    @Override
-    public void handleTurnOn() {
-
-    }
-
-    @Override
-    public void handleTurnOff() {
-
-    }
-
-    @Override
     public void entry() {
 
     }
@@ -166,6 +146,11 @@ public class internetOff implements ImovieDownloader {
 
     @Override
     public void setCurrState(ImovieDownloader state) {
+
+    }
+
+    @Override
+    public void initDownloadingStatus(int movieSize) {
 
     }
 }

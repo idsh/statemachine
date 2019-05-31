@@ -151,6 +151,11 @@ public class internetOn implements ImovieDownloader {
 
     }
 
+    @Override
+    public void initDownloadingStatus(int movieSize) {
+
+    }
+
     public DownloaderMachine getMachine() {
         return machine;
     }
