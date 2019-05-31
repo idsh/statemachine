@@ -1,7 +1,9 @@
 public class firstSpaceCheck implements ImovieDownloader {
-
+    DownloaderMachine machine;
+    Download father;
     public firstSpaceCheck(DownloaderMachine dm, Download download) {
-
+        this.father = download;
+        this.machine = dm;
     }
 
     @Override
@@ -141,13 +143,24 @@ public class firstSpaceCheck implements ImovieDownloader {
 
     @Override
     public void entry() {
+        System.out.println("enter firstSpaceCheck state");
+        int currentMovieSize =machine.getMovieSize();
+        if(machine.getCurrFreeSpace()>=currentMovieSize){
 
+            machine.getCurrMachineState().initDownloadingStatus(currentMovieSize);
+            father.setCurrState(father.getDownloadingMovie());
+        }
+        else{
+            father.setCurrState(father.getSecondSpaceCheck());
+        }
     }
 
     @Override
     public void exit() {
-
+        System.out.println("exit firstSpaceCheck state");
     }
+
+
 
     @Override
     public void startMovieFromBeginning() {
@@ -161,6 +174,11 @@ public class firstSpaceCheck implements ImovieDownloader {
 
     @Override
     public void setCurrState(ImovieDownloader state) {
+
+    }
+
+    @Override
+    public void initDownloadingStatus(int currentMovieSize) {
 
     }
 }
