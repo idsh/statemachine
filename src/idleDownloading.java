@@ -84,7 +84,7 @@ public class idleDownloading implements ImovieDownloader{
 
     @Override
     public void QisNotEmpty() {
-
+        father.setCurrState(father.getFirstSpaceCheck());
     }
 
     @Override

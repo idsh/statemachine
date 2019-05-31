@@ -1,9 +1,9 @@
 public class turnOn implements ImovieDownloader{
 
     private DownloaderMachine machine;
-    private ImovieDownloader requestQState;
-    private ImovieDownloader userStatusState;
-    private ImovieDownloader internetState;
+    private requestQueue requestQState;
+    private userStatus userStatusState;
+    private Internet internetState;
 
     public turnOn(DownloaderMachine machine) {
         this.machine = machine;
@@ -83,11 +83,20 @@ public class turnOn implements ImovieDownloader{
 
     @Override
     public void internetOff() {
+        requestQState.internetOff();
+        requestQState.exit();
+        userStatusState.internetOff();
+        userStatusState.exit();
+        internetState.internetOff();
+        internetState.exit();
 
     }
 
     @Override
     public void internetOn() {
+        requestQState.internetOn();
+        userStatusState.internetOn();
+        internetState.internetOn();
 
     }
 
@@ -103,7 +112,9 @@ public class turnOn implements ImovieDownloader{
 
     @Override
     public void QisNotEmpty() {
-
+        requestQState.QisNotEmpty();
+        userStatusState.QisNotEmpty();
+        internetState.QisNotEmpty();
     }
 
     @Override
@@ -144,10 +155,16 @@ public class turnOn implements ImovieDownloader{
     @Override
     public void entry() {
         System.out.println("enter turnOn state");
+        requestQState.entry();
+        userStatusState.entry();
+        internetState.entry();
     }
 
     @Override
     public void exit() {
+        requestQState.exit();
+        userStatusState.exit();
+        internetState.exit();
         System.out.println("exit turnOn state");
     }
 
@@ -183,7 +200,7 @@ public class turnOn implements ImovieDownloader{
         return requestQState;
     }
 
-    public void setRequestQState(ImovieDownloader requestQState) {
+    public void setRequestQState(requestQueue requestQState) {
         this.requestQState = requestQState;
     }
 
@@ -191,7 +208,7 @@ public class turnOn implements ImovieDownloader{
         return userStatusState;
     }
 
-    public void setUserStatusState(ImovieDownloader userStatusState) {
+    public void setUserStatusState(userStatus userStatusState) {
         this.userStatusState = userStatusState;
     }
 
@@ -199,7 +216,7 @@ public class turnOn implements ImovieDownloader{
         return internetState;
     }
 
-    public void setInternetState(ImovieDownloader internetState) {
+    public void setInternetState(Internet internetState) {
         this.internetState = internetState;
     }
 

@@ -78,7 +78,7 @@ public class Internet implements ImovieDownloader {
 
     @Override
     public void internetOn() {
-
+        currState.internetOn();
     }
 
     @Override
@@ -93,7 +93,7 @@ public class Internet implements ImovieDownloader {
 
     @Override
     public void QisNotEmpty() {
-
+        currState.QisNotEmpty();
     }
 
     @Override
@@ -154,11 +154,37 @@ public class Internet implements ImovieDownloader {
 
     @Override
     public void setCurrState(ImovieDownloader state) {
-
+        this.currState.exit();
+        this.currState = state;
+        this.currState.entry();
     }
 
     @Override
     public void initDownloadingStatus(int movieSize) {
 
+    }
+
+    public ImovieDownloader getInternetOn() {
+        return internetOn;
+    }
+
+    public void setInternetOn(ImovieDownloader internetOn) {
+        this.internetOn = internetOn;
+    }
+
+    public ImovieDownloader getInternetOff() {
+        return internetOff;
+    }
+
+    public void setInternetOff(ImovieDownloader internetOff) {
+        this.internetOff = internetOff;
+    }
+
+    public DownloaderMachine getMachine() {
+        return machine;
+    }
+
+    public void setMachine(DownloaderMachine machine) {
+        this.machine = machine;
     }
 }

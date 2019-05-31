@@ -59,12 +59,20 @@ public class internetOn implements ImovieDownloader {
 
     @Override
     public void internetOff() {
-
+        DownloadState.internetOff();
+        DownloadState.exit();
+        WatchState.internetOff();
+        WatchState.exit();
+        this.exit();
     }
 
     @Override
     public void internetOn() {
-
+        this.entry();
+        DownloadState.entry();
+        DownloadState.internetOn();
+        DownloadState.entry();
+        WatchState.internetOn();
     }
 
     @Override
@@ -89,7 +97,8 @@ public class internetOn implements ImovieDownloader {
 
     @Override
     public void QisNotEmpty() {
-
+        DownloadState.QisNotEmpty();
+        WatchState.QisNotEmpty();
     }
 
     @Override
