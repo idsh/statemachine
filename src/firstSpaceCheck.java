@@ -1,4 +1,4 @@
-public class firstSpaceCheck extends Download{
+public class firstSpaceCheck implements ImovieDownloader {
 
     @Override
     void idleDownloadling() {

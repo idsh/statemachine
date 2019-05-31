@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class queueM extends turnOn implements IRequestQueue{
+public class queueM extends turnOn implements ImovieDownloader {
     @Override
     public void handleTurnOn() {
 

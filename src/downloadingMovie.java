@@ -1,4 +1,4 @@
-public class downloadingMovie extends internetOn {
+public class downloadingMovie implements ImovieDownloader {
 
     void idleDownloadling(){
 

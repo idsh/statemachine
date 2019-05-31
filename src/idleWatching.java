@@ -1,4 +1,4 @@
-public class idleWatching extends Watch {
+public class idleWatching implements ImovieDownloader {
 
     @Override
     void idleWatching() {

@@ -1,4 +1,4 @@
-public class pauseMovie extends Watch{
+public class pauseMovie implements ImovieDownloader{
 
     @Override
     void idleWatching() {

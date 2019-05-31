@@ -1,4 +1,4 @@
-public class deletingMovie extends Download{
+public class deletingMovie implements ImovieDownloader {
 
     @Override
     void idleDownloadling() {
