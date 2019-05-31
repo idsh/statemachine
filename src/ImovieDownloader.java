@@ -32,6 +32,9 @@ public interface ImovieDownloader {
     void handleTurnOff();
     void entry();
     void exit();
+    void startMovieFromBeginning();
+    ImovieDownloader getCurrState();
+    void setCurrState(ImovieDownloader state);
 
 
 
