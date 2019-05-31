@@ -1,4 +1,4 @@
-public class beginner implements IUserStatus {
+public class beginner implements ImovieDownloader {
 
     @Override
     public void handleBeginner() {

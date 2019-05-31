@@ -14,6 +14,7 @@ public interface ImovieDownloader {
     void internetOn();
     void turnOff ();
     void turnOn();
+
     //shelanu
     void removeRequest();
     void scoreChanged();

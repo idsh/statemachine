@@ -1,4 +1,4 @@
-public class errorOccurred extends Download{
+public class errorOccurred implements ImovieDownloader {
     @Override
     void idleDownloadling() {
 
