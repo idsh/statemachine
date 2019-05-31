@@ -153,4 +153,9 @@ public class requestQueue implements ImovieDownloader {
     public void setCurrState(ImovieDownloader state) {
 
     }
+
+    @Override
+    public void initDownloadingStatus(int movieSize) {
+
+    }
 }

@@ -166,6 +166,11 @@ public class turnOn implements ImovieDownloader{
 
     }
 
+    @Override
+    public void initDownloadingStatus(int movieSize) {
+
+    }
+
     public DownloaderMachine getMachine() {
         return machine;
     }

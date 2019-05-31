@@ -80,11 +80,11 @@ public class advanced implements ImovieDownloader {
 
     @Override
     public void scoreChanged() {
-        if (machine.score < 4){
+        if (machine.getScore() < 4){
             father.setSpeedRate(1);
             father.setCurrState(father.getBeginner());
         }
-        else if (machine.score > 6){
+        else if (machine.getScore() > 6){
             father.setSpeedRate(1.5);
             father.setCurrState(father.getProfessional());
         }
@@ -131,26 +131,6 @@ public class advanced implements ImovieDownloader {
     }
 
     @Override
-    public void handleInternetOn() {
-
-    }
-
-    @Override
-    public void handleInternetOff() {
-
-    }
-
-    @Override
-    public void handleTurnOn() {
-
-    }
-
-    @Override
-    public void handleTurnOff() {
-
-    }
-
-    @Override
     public void entry() {
         System.out.println("enter advanced state");
     }
@@ -172,6 +152,11 @@ public class advanced implements ImovieDownloader {
 
     @Override
     public void setCurrState(ImovieDownloader state) {
+
+    }
+
+    @Override
+    public void initDownloadingStatus(int movieSize) {
 
     }
 }
