@@ -26,10 +26,6 @@ public interface ImovieDownloader {
     void inDeletingMovie();
     void watching();
     void downloadingDone();
-    void handleInternetOn();
-    void handleInternetOff();
-    void handleTurnOn();
-    void handleTurnOff();
     void entry();
     void exit();
     void startMovieFromBeginning();

@@ -1,5 +1,11 @@
 
 public class userStatus implements ImovieDownloader {
+
+
+    public userStatus() {
+
+    }
+
     @Override
     public void restartMovie() {
 

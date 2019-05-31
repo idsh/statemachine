@@ -120,26 +120,6 @@ public class secondSpaceCheck implements ImovieDownloader {
     }
 
     @Override
-    public void handleInternetOn() {
-
-    }
-
-    @Override
-    public void handleInternetOff() {
-
-    }
-
-    @Override
-    public void handleTurnOn() {
-
-    }
-
-    @Override
-    public void handleTurnOff() {
-
-    }
-
-    @Override
     public void entry() {
 
     }

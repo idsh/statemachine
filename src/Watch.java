@@ -25,7 +25,7 @@ public class Watch implements ImovieDownloader{
         this.machine = machine;
     }
 
-    public ImovieDownloader getFather() {
+    public internetOn getFather() {
         return father;
     }
 

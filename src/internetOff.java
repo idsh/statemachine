@@ -1,5 +1,13 @@
 public class internetOff implements ImovieDownloader {
 
+    private DownloaderMachine machine;
+    private ImovieDownloader father;
+
+    public internetOff(DownloaderMachine DM, Internet father){
+        this.father = father;
+        this.machine = DM;
+    }
+
 
     @Override
     public void restartMovie() {

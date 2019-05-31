@@ -1,4 +1,29 @@
 public class requestQueue implements ImovieDownloader {
+
+    private DownloaderMachine machine;
+    private turnOn father;
+    private ImovieDownloader queueM;
+
+    public requestQueue(DownloaderMachine DM, turnOn father){
+        this.father = father;
+        this.machine = DM;
+        queueM = new queueM(machine, this);
+    }
+
+    @Override
+    public void turnOff() {
+        queueM.turnOff();
+        queueM.exit();
+        this.exit();
+    }
+
+    @Override
+    public void turnOn() {
+        this.entry();
+        queueM.turnOn();
+        queueM.entry();
+    }
+
     @Override
     public void restartMovie() {
 
@@ -55,16 +80,6 @@ public class requestQueue implements ImovieDownloader {
     }
 
     @Override
-    public void turnOff() {
-
-    }
-
-    @Override
-    public void turnOn() {
-
-    }
-
-    @Override
     public void removeRequest() {
 
     }
@@ -115,33 +130,13 @@ public class requestQueue implements ImovieDownloader {
     }
 
     @Override
-    public void handleInternetOn() {
-
-    }
-
-    @Override
-    public void handleInternetOff() {
-
-    }
-
-    @Override
-    public void handleTurnOn() {
-
-    }
-
-    @Override
-    public void handleTurnOff() {
-
-    }
-
-    @Override
     public void entry() {
-
+        System.out.println("enter requestQueue state");
     }
 
     @Override
     public void exit() {
-
+        System.out.println("exit requestQueue state");
     }
 
     @Override

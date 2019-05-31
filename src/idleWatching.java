@@ -115,8 +115,8 @@ public class idleWatching implements ImovieDownloader  {
 
     @Override
     public void watching() {
-        if (machine.downloadingStatus > 20 &&
-                ((internetOn)father.getFather()).getDownloadState().getCurrState() instanceof downloadingMovie){
+        if (machine.getDownloadingStatus() > 20 &&
+                (father.getFather()).getDownloadState().getCurrState() instanceof downloadingMovie){
             machine.currMachineState.startMovieFromBeginning();
             father.setCurrState(father.getWatchingMovie());
         }

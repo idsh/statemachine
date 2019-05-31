@@ -1,5 +1,22 @@
 public class turnOff implements ImovieDownloader{
 
+
+    private DownloaderMachine machine;
+
+    public turnOff(DownloaderMachine machine) {
+        this.machine = machine;
+    }
+
+
+    @Override
+    public void turnOff() {
+        this.entry();
+    }
+
+    @Override
+    public void turnOn() {
+        this.exit();
+    }
   
     @Override
     public void restartMovie() {
@@ -57,16 +74,6 @@ public class turnOff implements ImovieDownloader{
     }
 
     @Override
-    public void turnOff() {
-
-    }
-
-    @Override
-    public void turnOn() {
-
-    }
-
-    @Override
     public void removeRequest() {
 
     }
@@ -117,34 +124,13 @@ public class turnOff implements ImovieDownloader{
     }
 
     @Override
-    public void handleInternetOn() {
-
-    }
-
-    @Override
-    public void handleInternetOff() {
-
-    }
-
-    @Override
-    public void handleTurnOn() {
-
-    }
-
-    @Override
-    public void handleTurnOff() {
-
-    }
-
-  
-    @Override
     public void entry() {
-
+        System.out.println("enter turnOff state");
     }
 
     @Override
     public void exit() {
-
+        System.out.println("exit turnOff state");
     }
 
     @Override

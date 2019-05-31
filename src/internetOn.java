@@ -1,12 +1,11 @@
 public class internetOn implements ImovieDownloader {
 
     private DownloaderMachine machine;
-
     private ImovieDownloader father;
     private ImovieDownloader DownloadState;
     private ImovieDownloader WatchState;
 
-    public internetOn(DownloaderMachine DM, ImovieDownloader father){
+    public internetOn(DownloaderMachine DM, Internet father){
         this.father = father;
         this.machine = DM;
         DownloadState = new Download(DM,this);
@@ -127,35 +126,14 @@ public class internetOn implements ImovieDownloader {
     public void downloadingDone() {
 
     }
-
-    @Override
-    public void handleInternetOn() {
-
-    }
-
-    @Override
-    public void handleInternetOff() {
-
-    }
-
-    @Override
-    public void handleTurnOn() {
-
-    }
-
-    @Override
-    public void handleTurnOff() {
-
-    }
-
     @Override
     public void entry() {
-
+        System.out.println("enter internetOn state");
     }
 
     @Override
     public void exit() {
-
+        System.out.println("exit internetOn state");
     }
 
     @Override
