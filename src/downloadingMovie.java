@@ -1,4 +1,4 @@
-public class downloadingMovie implements ImovieDownloader {
+public class downloadingMovie extends Download {
 
     void idleDownloadling(){
 

@@ -1,4 +1,4 @@
-public abstract class internetOn implements ImovieDownloader {
+public abstract class internetOn extends Internet {
 
     @Override
     public void handleTurnOn() {

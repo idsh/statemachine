@@ -1,4 +1,4 @@
-public class professional implements ImovieDownloader {
+public class professional extends userStatus {
     @Override
     public void handleBeginner() {
 
