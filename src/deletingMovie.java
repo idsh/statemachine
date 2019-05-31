@@ -1,6 +1,11 @@
 public class deletingMovie implements ImovieDownloader {
 
-    public deletingMovie(DownloaderMachine dm, Download download) {
+    private DownloaderMachine machine;
+    private Download father;
+
+    public deletingMovie(DownloaderMachine Dm, Download father){
+        this.machine = Dm;
+        this.father = father;
     }
 
 
@@ -141,12 +146,16 @@ public class deletingMovie implements ImovieDownloader {
 
     @Override
     public void entry() {
-
+        System.out.println("enter deletingMovie state");
+        machine.score++;
+        machine.currMachineState.scoreChanged();
+        machine.currMachineState.removeRequest();
+        father.setCurrState(father.getIdleDownloading());
     }
 
     @Override
     public void exit() {
-
+        System.out.println("exit deletingMovie state");
     }
 
     @Override

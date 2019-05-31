@@ -32,7 +32,9 @@ public class Download implements ImovieDownloader {
     }
 
     public void setCurrState(ImovieDownloader currState) {
+        this.currState.exit();
         this.currState = currState;
+        this.currState.entry();
     }
 
     public idleDownloading getIdleDownloading() {
