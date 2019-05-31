@@ -35,6 +35,7 @@ public interface ImovieDownloader {
     void startMovieFromBeginning();
     ImovieDownloader getCurrState();
     void setCurrState(ImovieDownloader state);
+    void initDownloadingStatus(int movieSize);
 
 
 
