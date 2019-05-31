@@ -1,24 +1,4 @@
 public interface ImovieDownloader {
-    //???
-    void handleTurnOn();
-    void handleTurnOff();
-    void handleIdleDownloadling();
-    void handleFirstSpaceCheck();
-    void handleSecondSpaceCheck();
-    void handleDeletiMovie();
-    void handleErrorOcurred();
-    void handleDownloadingMovie();
-    void handleIdleWatching();
-    void handleWatchingMovie();
-    void handlePauseMovie();
-    void handleInternetOn();
-    void handleInternetOff();
-    void removeRequest();
-    void handleScoreChange();
-    void handleQNotEmptyChange();
-    void handleCheckSpace();
-    void handleErrorFixed();
-    //???
 
     //events must have by those names
     void restartMovie();
@@ -34,4 +14,24 @@ public interface ImovieDownloader {
     void internetOn();
     void turnOff ();
     void turnOn();
+    //shelanu
+    void removeRequest();
+    void scoreChanged();
+    void QisNotEmpty();
+    void checkSpace();
+    void updateDownloadStatus();
+    void pauseMovie();
+    void startMovie();
+    void inDeletingMovie();
+    void watching();
+    void downloadingDone();
+    void handleInternetOn();
+    void handleInternetOff();
+    void handleTurnOn();
+    void handleTurnOff();
+
+
+
+
+
 }
