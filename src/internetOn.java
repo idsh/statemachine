@@ -121,38 +121,16 @@ public class internetOn implements ImovieDownloader {
     }
 
     @Override
-    public void pauseMovie() {
-        DownloadState.pauseMovie();
-        WatchState.pauseMovie();
-    }
-
-    @Override
-    public void startMovie() {
-        DownloadState.startMovie();
-        WatchState.startMovie();
-    }
-
-    @Override
     public void inDeletingMovie() {
         DownloadState.inDeletingMovie();
         WatchState.inDeletingMovie();
     }
 
-    @Override
-    public void watching() {
-        DownloadState.watching();
-        WatchState.watching();
-    }
 
     @Override
     public void downloadingDone() {
         DownloadState.downloadingDone();
         WatchState.downloadingDone();
-    }
-    @Override
-    public void startMovieFromBeginning() {
-        DownloadState.startMovieFromBeginning();
-        WatchState.startMovieFromBeginning();
     }
 
     @Override

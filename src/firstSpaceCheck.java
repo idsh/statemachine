@@ -97,22 +97,7 @@ public class firstSpaceCheck implements ImovieDownloader {
     }
 
     @Override
-    public void pauseMovie() {
-
-    }
-
-    @Override
-    public void startMovie() {
-
-    }
-
-    @Override
     public void inDeletingMovie() {
-
-    }
-
-    @Override
-    public void watching() {
 
     }
 
@@ -138,13 +123,6 @@ public class firstSpaceCheck implements ImovieDownloader {
     @Override
     public void exit() {
         System.out.println("exit firstSpaceCheck state");
-    }
-
-
-
-    @Override
-    public void startMovieFromBeginning() {
-
     }
 
     @Override

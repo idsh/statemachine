@@ -81,11 +81,11 @@ public class advanced implements ImovieDownloader {
     @Override
     public void scoreChanged() {
         if (machine.getScore() < 4){
-            father.setSpeedRate(1);
+            machine.setSpeedRate(1);
             father.setCurrState(father.getBeginner());
         }
         else if (machine.getScore() > 6){
-            father.setSpeedRate(1.5);
+            machine.setSpeedRate(1.5);
             father.setCurrState(father.getProfessional());
         }
     }
@@ -106,22 +106,7 @@ public class advanced implements ImovieDownloader {
     }
 
     @Override
-    public void pauseMovie() {
-
-    }
-
-    @Override
-    public void startMovie() {
-
-    }
-
-    @Override
     public void inDeletingMovie() {
-
-    }
-
-    @Override
-    public void watching() {
 
     }
 
@@ -138,11 +123,6 @@ public class advanced implements ImovieDownloader {
     @Override
     public void exit() {
         System.out.println("exit advanced state");
-    }
-
-    @Override
-    public void startMovieFromBeginning() {
-
     }
 
     @Override

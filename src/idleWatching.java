@@ -30,7 +30,10 @@ public class idleWatching implements ImovieDownloader  {
 
     @Override
     public void movieOn() {
-
+        if (machine.getDownloadingStatus() / machine.getMovieSize() * 100 >= 20 &&
+                (father.getFather()).getDownloadState().getCurrState() instanceof downloadingMovie){
+            father.setCurrState(father.getWatchingMovie());
+        }
     }
 
     @Override
@@ -99,28 +102,10 @@ public class idleWatching implements ImovieDownloader  {
     }
 
     @Override
-    public void pauseMovie() {
-
-    }
-
-    @Override
-    public void startMovie() {
-
-    }
-
-    @Override
     public void inDeletingMovie() {
 
     }
 
-    @Override
-    public void watching() {
-        if (machine.getDownloadingStatus() > 20 &&
-                (father.getFather()).getDownloadState().getCurrState() instanceof downloadingMovie){
-            machine.currMachineState.startMovieFromBeginning();
-            father.setCurrState(father.getWatchingMovie());
-        }
-    }
 
     @Override
     public void downloadingDone() {
@@ -135,11 +120,6 @@ public class idleWatching implements ImovieDownloader  {
     @Override
     public void exit() {
         System.out.println("exit idleWatching state");
-    }
-
-    @Override
-    public void startMovieFromBeginning() {
-
     }
 
     @Override

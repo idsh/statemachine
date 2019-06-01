@@ -101,33 +101,13 @@ public class requestQueue implements ImovieDownloader {
     }
 
     @Override
-    public void pauseMovie() {
-        queueM.pauseMovie();
-    }
-
-    @Override
-    public void startMovie() {
-        queueM.startMovie();
-    }
-
-    @Override
     public void inDeletingMovie() {
         queueM.inDeletingMovie();
     }
 
     @Override
-    public void watching() {
-        queueM.watching();
-    }
-
-    @Override
     public void downloadingDone() {
         queueM.downloadingDone();
-    }
-
-    @Override
-    public void startMovieFromBeginning() {
-        queueM.startMovieFromBeginning();
     }
 
     @Override

@@ -100,22 +100,7 @@ public class deletingMovie implements ImovieDownloader {
     }
 
     @Override
-    public void pauseMovie() {
-
-    }
-
-    @Override
-    public void startMovie() {
-
-    }
-
-    @Override
     public void inDeletingMovie() {
-
-    }
-
-    @Override
-    public void watching() {
 
     }
 
@@ -136,11 +121,6 @@ public class deletingMovie implements ImovieDownloader {
     @Override
     public void exit() {
         System.out.println("exit deletingMovie state");
-    }
-
-    @Override
-    public void startMovieFromBeginning() {
-
     }
 
     @Override

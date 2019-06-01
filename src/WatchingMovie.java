@@ -1,7 +1,9 @@
-public class WatchingMovie implements ImovieDownloader {
+public class WatchingMovie implements ImovieDownloader,Runnable {
 
     private DownloaderMachine machine;
     private Watch father;
+
+    private Thread watchingThread = new Thread(this);
 
     public WatchingMovie(DownloaderMachine Dm, Watch father){
         this.machine = Dm;
@@ -10,8 +12,22 @@ public class WatchingMovie implements ImovieDownloader {
 
 
     @Override
+    public void run() {
+        while (machine.getDownloadingStatus() < machine.getMovieSize()){
+            while (!Thread.interrupted()) {
+                try {
+                    System.out.println("watcing");
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    return;
+                }
+            }
+        }
+    }
+
+
+    @Override
     public void restartMovie() {
-        machine.currMachineState.startMovieFromBeginning();
         father.setCurrState(father.getWatchingMovie());
     }
 
@@ -101,23 +117,8 @@ public class WatchingMovie implements ImovieDownloader {
     }
 
     @Override
-    public void pauseMovie() {
-
-    }
-
-    @Override
-    public void startMovie() {
-
-    }
-
-    @Override
     public void inDeletingMovie() {
         father.setCurrState(father.getIdleWatching());
-    }
-
-    @Override
-    public void watching() {
-
     }
 
     @Override
@@ -128,16 +129,14 @@ public class WatchingMovie implements ImovieDownloader {
     @Override
     public void entry() {
         System.out.println("enter WatchingMovie state");
+        watchingThread = new Thread(this);
+        watchingThread.start();
     }
 
     @Override
     public void exit() {
+        watchingThread.interrupt();
         System.out.println("exit WatchingMovie state");
-    }
-
-    @Override
-    public void startMovieFromBeginning() {
-
     }
 
     @Override
@@ -154,4 +153,6 @@ public class WatchingMovie implements ImovieDownloader {
     public void initDownloadingStatus(int movieSize) {
 
     }
+
+
 }

@@ -9,12 +9,13 @@ public class Watch implements ImovieDownloader{
     private WatchingMovie watchingMovie;
 
     public Watch(DownloaderMachine DM, internetOn father){
-        currState = new idleWatching(DM,this);
-        this.father = father;
         this.machine = DM;
+        this.father = father;
+
         idleWatching = new idleWatching(DM,this);
         pauseMovie = new pauseMovie(DM,this);
         watchingMovie = new WatchingMovie(DM,this);
+        currState = idleWatching;
     }
 
     public DownloaderMachine getMachine() {
@@ -148,24 +149,10 @@ public class Watch implements ImovieDownloader{
     }
 
     @Override
-    public void pauseMovie() {
-        currState.pauseMovie();
-    }
-
-    @Override
-    public void startMovie() {
-        currState.startMovie();
-    }
-
-    @Override
     public void inDeletingMovie() {
         currState.inDeletingMovie();
     }
 
-    @Override
-    public void watching() {
-        currState.watching();
-    }
 
     @Override
     public void downloadingDone() {
@@ -182,11 +169,5 @@ public class Watch implements ImovieDownloader{
     public void exit() {
         currState.exit();
         System.out.println("exit Watch state");
-    }
-
-
-    @Override
-    public void startMovieFromBeginning() {
-        currState.startMovieFromBeginning();
     }
 }

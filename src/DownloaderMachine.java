@@ -1,23 +1,37 @@
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class DownloaderMachine {
 
     //curr state
     public ImovieDownloader currMachineState;
     private int score;
+    private double speedRate;
     private int currFreeSpace;
-    private int downloadingStatus;
+    private Double downloadingStatus;
     private int movieSize;
     private turnOff turnoff;
     private turnOn turnon;
+    private ExecutorService executor;
+
+    public double getSpeedRate() {
+        return speedRate;
+    }
+
+    public void setSpeedRate(double speedRate) {
+        this.speedRate = speedRate;
+    }
 
     public DownloaderMachine() {
         this.score = 0;
         this.currFreeSpace = 100;
-        this.downloadingStatus = 0;
+        this.downloadingStatus = 0.0;
         this.movieSize = 0;
         this.turnoff = new turnOff(this);
         this.turnon = new turnOn(this);
         this.currMachineState = turnoff;
         this.currMachineState.entry();
+        this.executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
     }
 
     public turnOff getTurnoff() {
@@ -63,11 +77,11 @@ public class DownloaderMachine {
         this.currFreeSpace = currFreeSpace;
     }
 
-    public int getDownloadingStatus() {
+    public Double getDownloadingStatus() {
         return downloadingStatus;
     }
 
-    public void setDownloadingStatus(int downloadingStatus) {
+    public void setDownloadingStatus(Double downloadingStatus) {
         this.downloadingStatus = downloadingStatus;
     }
 
@@ -76,10 +90,8 @@ public class DownloaderMachine {
     }
 
     public void setMovieSize(int movieSize) {
-        if(movieSize==0) {
             this.movieSize = movieSize;
             currMachineState.QisNotEmpty();
-        }
     }
 
 

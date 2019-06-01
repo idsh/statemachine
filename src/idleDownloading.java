@@ -98,22 +98,7 @@ public class idleDownloading implements ImovieDownloader{
     }
 
     @Override
-    public void pauseMovie() {
-
-    }
-
-    @Override
-    public void startMovie() {
-
-    }
-
-    @Override
     public void inDeletingMovie() {
-
-    }
-
-    @Override
-    public void watching() {
 
     }
 
@@ -130,12 +115,6 @@ public class idleDownloading implements ImovieDownloader{
     @Override
     public void exit() {
         System.out.println("exit idleDownloading state");
-    }
-
-
-    @Override
-    public void startMovieFromBeginning() {
-
     }
 
     @Override

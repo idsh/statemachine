@@ -100,22 +100,7 @@ public class internetOff implements ImovieDownloader {
     }
 
     @Override
-    public void pauseMovie() {
-
-    }
-
-    @Override
-    public void startMovie() {
-
-    }
-
-    @Override
     public void inDeletingMovie() {
-
-    }
-
-    @Override
-    public void watching() {
 
     }
 
@@ -132,11 +117,6 @@ public class internetOff implements ImovieDownloader {
     @Override
     public void exit() {
         System.out.println("exit internetOff state");
-    }
-
-    @Override
-    public void startMovieFromBeginning() {
-
     }
 
     @Override

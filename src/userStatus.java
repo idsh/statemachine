@@ -9,25 +9,16 @@ public class userStatus implements ImovieDownloader {
     private beginner beginner;
     private advanced advanced;
     private professional professional;
-    private double speedRate;
+
 
     public userStatus(DownloaderMachine DM, turnOn father){
-        currState = new beginner(DM,this);
-        speedRate = 1;
-        this.father = father;
         this.machine = DM;
-
+        machine.setSpeedRate(1.0);
+        this.father = father;
         beginner = new beginner(DM,this);
         advanced = new advanced(DM,this);
         professional = new professional(DM,this);
-    }
-
-    public double getSpeedRate() {
-        return speedRate;
-    }
-
-    public void setSpeedRate(double speedRate) {
-        this.speedRate = speedRate;
+        currState = beginner;
     }
 
     public turnOn getFather() {
@@ -137,33 +128,13 @@ public class userStatus implements ImovieDownloader {
     }
 
     @Override
-    public void pauseMovie() {
-        currState.pauseMovie();
-    }
-
-    @Override
-    public void startMovie() {
-        currState.startMovie();
-    }
-
-    @Override
     public void inDeletingMovie() {
         currState.inDeletingMovie();
     }
 
     @Override
-    public void watching() {
-        currState.watching();
-    }
-
-    @Override
     public void downloadingDone() {
         currState.downloadingDone();
-    }
-
-    @Override
-    public void startMovieFromBeginning() {
-        currState.startMovieFromBeginning();
     }
 
     @Override

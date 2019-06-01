@@ -10,7 +10,6 @@ public class pauseMovie implements ImovieDownloader{
 
     @Override
     public void restartMovie() {
-        machine.currMachineState.startMovieFromBeginning();
         father.setCurrState(father.getWatchingMovie());
     }
 
@@ -100,23 +99,8 @@ public class pauseMovie implements ImovieDownloader{
     }
 
     @Override
-    public void pauseMovie() {
-
-    }
-
-    @Override
-    public void startMovie() {
-
-    }
-
-    @Override
     public void inDeletingMovie() {
         father.setCurrState(father.getIdleWatching());
-    }
-
-    @Override
-    public void watching() {
-
     }
 
     @Override
@@ -132,11 +116,6 @@ public class pauseMovie implements ImovieDownloader{
     @Override
     public void exit() {
         System.out.println("exit pauseMovie state");
-    }
-
-    @Override
-    public void startMovieFromBeginning() {
-
     }
 
     @Override

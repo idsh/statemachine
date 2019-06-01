@@ -105,34 +105,13 @@ public class Internet implements ImovieDownloader {
     }
 
     @Override
-    public void pauseMovie() {
-        currState.pauseMovie();
-    }
-
-    @Override
-    public void startMovie() {
-        currState.startMovie();
-    }
-
-    @Override
     public void inDeletingMovie() {
         currState.inDeletingMovie();
     }
 
     @Override
-    public void watching() {
-        currState.watching();
-    }
-
-    @Override
     public void downloadingDone() {
         currState.downloadingDone();
-    }
-
-
-    @Override
-    public void startMovieFromBeginning() {
-        currState.startMovieFromBeginning();
     }
 
     @Override

@@ -80,7 +80,7 @@ public class queueM implements ImovieDownloader {
 
     @Override
     public void removeRequest() {
-        machine.setDownloadingStatus(0);
+        machine.setDownloadingStatus(0.0);
         machine.setMovieSize(0);
     }
 
@@ -105,22 +105,7 @@ public class queueM implements ImovieDownloader {
     }
 
     @Override
-    public void pauseMovie() {
-
-    }
-
-    @Override
-    public void startMovie() {
-
-    }
-
-    @Override
     public void inDeletingMovie() {
-
-    }
-
-    @Override
-    public void watching() {
 
     }
 
@@ -140,11 +125,6 @@ public class queueM implements ImovieDownloader {
     }
 
     @Override
-    public void startMovieFromBeginning() {
-
-    }
-
-    @Override
     public ImovieDownloader getCurrState() {
         return null;
     }
@@ -157,6 +137,6 @@ public class queueM implements ImovieDownloader {
     @Override
     public void initDownloadingStatus(int movieSize) {
         machine.setMovieSize(movieSize);
-        machine.setDownloadingStatus(0);
+        machine.setDownloadingStatus(0.0);
     }
 }

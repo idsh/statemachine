@@ -22,14 +22,10 @@ public interface ImovieDownloader {
     void QisNotEmpty();
     void checkSpace();
     void updateDownloadStatus();
-    void pauseMovie();
-    void startMovie();
     void inDeletingMovie();
-    void watching();
     void downloadingDone();
     void entry();
     void exit();
-    void startMovieFromBeginning();
     ImovieDownloader getCurrState();
     void setCurrState(ImovieDownloader state);
     void initDownloadingStatus(int movieSize);

@@ -1,20 +1,44 @@
-public class downloadingMovie implements ImovieDownloader {
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+
+public class downloadingMovie implements ImovieDownloader,Runnable {
 
     private DownloaderMachine machine;
     private Download father;
+
+    private Thread downloadingThread = new Thread(this);
 
     public downloadingMovie(DownloaderMachine dm, Download father) {
         machine = dm;
         this.father = father;
     }
 
+    @Override
+    public void run() {
+        while (!Thread.interrupted() && machine.getDownloadingStatus() < machine.getMovieSize()) {
+            machine.setDownloadingStatus(machine.getDownloadingStatus() + machine.getSpeedRate());
+            System.out.println(machine.getDownloadingStatus());
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                return;
+            }
+        }
+        downloadingDone();
+    }
+
+    public Thread getDownloadingThread() {
+        return downloadingThread;
+    }
+
     public void entry() {
         System.out.println("enter downloadingMovie state");
         machine.setCurrFreeSpace(machine.getCurrFreeSpace() - machine.getMovieSize());
-        machine.setDownloadingStatus(66);
+        downloadingThread = new Thread(this);
+        downloadingThread.start();
     }
 
     public void exit() {
+        downloadingThread.interrupt();
         System.out.println("exit downloadingMovie state");
     }
 
@@ -110,24 +134,10 @@ public class downloadingMovie implements ImovieDownloader {
     }
 
     @Override
-    public void pauseMovie() {
-
-    }
-
-    @Override
-    public void startMovie() {
-
-    }
-
-    @Override
     public void inDeletingMovie() {
 
     }
 
-    @Override
-    public void watching() {
-
-    }
 
     @Override
     public void downloadingDone() {
@@ -135,11 +145,6 @@ public class downloadingMovie implements ImovieDownloader {
         machine.getCurrMachineState().removeRequest();
         machine.getCurrMachineState().scoreChanged();
         father.setCurrState(father.getIdleDownloading());
-    }
-
-    @Override
-    public void startMovieFromBeginning() {
-
     }
 
     @Override
@@ -156,4 +161,6 @@ public class downloadingMovie implements ImovieDownloader {
     public void initDownloadingStatus(int movieSize) {
 
     }
+
+
 }

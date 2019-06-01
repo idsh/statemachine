@@ -142,20 +142,6 @@ public class turnOn implements ImovieDownloader{
     }
 
     @Override
-    public void pauseMovie() {
-        requestQState.pauseMovie();
-        userStatusState.pauseMovie();
-        internetState.pauseMovie();
-    }
-
-    @Override
-    public void startMovie() {
-        requestQState.startMovie();
-        userStatusState.startMovie();
-        internetState.startMovie();
-    }
-
-    @Override
     public void inDeletingMovie() {
         requestQState.inDeletingMovie();
         userStatusState.inDeletingMovie();
@@ -163,24 +149,10 @@ public class turnOn implements ImovieDownloader{
     }
 
     @Override
-    public void watching() {
-        requestQState.watching();
-        userStatusState.watching();
-        internetState.watching();
-    }
-
-    @Override
     public void downloadingDone() {
         requestQState.downloadingDone();
         userStatusState.downloadingDone();
         internetState.downloadingDone();
-    }
-
-    @Override
-    public void startMovieFromBeginning() {
-        requestQState.startMovieFromBeginning();
-        userStatusState.startMovieFromBeginning();
-        internetState.startMovieFromBeginning();
     }
 
     @Override

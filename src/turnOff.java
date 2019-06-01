@@ -99,32 +99,12 @@ public class turnOff implements ImovieDownloader{
     }
 
     @Override
-    public void pauseMovie() {
-
-    }
-
-    @Override
-    public void startMovie() {
-
-    }
-
-    @Override
     public void inDeletingMovie() {
 
     }
 
     @Override
-    public void watching() {
-
-    }
-
-    @Override
     public void downloadingDone() {
-
-    }
-
-    @Override
-    public void startMovieFromBeginning() {
 
     }
 
