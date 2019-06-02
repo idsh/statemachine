@@ -1,15 +1,16 @@
+/*
+this class represent the internet state.
+ */
 public class Internet implements ImovieDownloader {
 
     private ImovieDownloader internetOn;
     private ImovieDownloader internetOff;
     private ImovieDownloader currState;
-    private DownloaderMachine machine;
 
     public Internet(DownloaderMachine machine) {
         this.internetOn = new internetOn(machine, this);
-        this.internetOff = new internetOff(machine, this);
+        this.internetOff = new internetOff();
         this.currState = internetOff;
-        this.machine = machine;
     }
 
     @Override

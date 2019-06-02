@@ -1,10 +1,12 @@
-import java.util.concurrent.TimeUnit;
-
+/**
+ * this class represent the second space check state.
+ */
 public class secondSpaceCheck implements ImovieDownloader, Runnable {
 
     DownloaderMachine machine;
     Download father;
 
+    //the private thread of the class.
     private Thread secondCheckThread = new Thread(this);
 
     public secondSpaceCheck(DownloaderMachine dm, Download download) {
@@ -23,10 +25,13 @@ public class secondSpaceCheck implements ImovieDownloader, Runnable {
                 return;
             }
         }
+        //check if there is space for the movie.
+        //if there is start downloading.
         if(machine.getCurrFreeSpace() >= machine.getMovieSize()){
             machine.getCurrMachineState().initDownloadingStatus(machine.getMovieSize());
             father.setCurrState(father.getDownloadingMovie());
         }
+        //else deleting movie.
         else {
             father.setCurrState(father.getDeletingMovie());
         }

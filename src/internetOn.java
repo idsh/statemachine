@@ -1,13 +1,14 @@
+/*
+this class represent the internet on state.
+ */
 public class internetOn implements ImovieDownloader {
 
-    private DownloaderMachine machine;
     private ImovieDownloader father;
     private ImovieDownloader DownloadState;
     private ImovieDownloader WatchState;
 
     public internetOn(DownloaderMachine DM, Internet father){
         this.father = father;
-        this.machine = DM;
         DownloadState = new Download(DM,this);
         WatchState = new Watch(DM,this);
     }

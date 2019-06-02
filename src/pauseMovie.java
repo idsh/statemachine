@@ -1,10 +1,11 @@
+/*
+this class represent pausing movie state.
+ */
 public class pauseMovie implements ImovieDownloader{
 
-    private DownloaderMachine machine;
     private Watch father;
 
-    public pauseMovie(DownloaderMachine Dm, Watch father){
-        this.machine = Dm;
+    public pauseMovie(Watch father){
         this.father = father;
     }
 

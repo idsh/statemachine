@@ -1,10 +1,12 @@
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-
+/*
+this class represent the downloading movie state.
+ */
 public class downloadingMovie implements ImovieDownloader,Runnable {
 
     private DownloaderMachine machine;
     private Download father;
 
+    //the thread of the download.
     private Thread downloadingThread = new Thread(this);
 
     public downloadingMovie(DownloaderMachine dm, Download father) {
@@ -23,10 +25,6 @@ public class downloadingMovie implements ImovieDownloader,Runnable {
             }
         }
         downloadingDone();
-    }
-
-    public Thread getDownloadingThread() {
-        return downloadingThread;
     }
 
     public void entry() {
@@ -138,6 +136,13 @@ public class downloadingMovie implements ImovieDownloader,Runnable {
 
     }
 
+    /**
+     * the download is done.
+     * increasing the score of the user.
+     * remove the request.
+     * check for user status change.
+     * change state to idle downloading.
+     */
     @Override
     public void downloadingDone() {
         machine.setScore(machine.getScore() + 1);

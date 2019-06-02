@@ -1,3 +1,6 @@
+/**
+ * this class represent the turned on state.
+ */
 public class turnOn implements ImovieDownloader{
 
     private DownloaderMachine machine;
@@ -7,7 +10,7 @@ public class turnOn implements ImovieDownloader{
 
     public turnOn(DownloaderMachine machine) {
         this.machine = machine;
-        requestQState = new requestQueue(machine, this);
+        requestQState = new requestQueue(machine);
         userStatusState = new userStatus(machine, this);
         internetState = new Internet(machine);
     }

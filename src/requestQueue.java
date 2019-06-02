@@ -1,11 +1,12 @@
+/**
+ * this class represent the request queue.
+ */
 public class requestQueue implements ImovieDownloader {
 
     private DownloaderMachine machine;
-    private turnOn father;
     private ImovieDownloader queueM;
 
-    public requestQueue(DownloaderMachine DM, turnOn father){
-        this.father = father;
+    public requestQueue(DownloaderMachine DM){
         this.machine = DM;
         queueM = new queueM(machine, this);
     }

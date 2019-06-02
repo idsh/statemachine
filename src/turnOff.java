@@ -1,3 +1,6 @@
+/**
+ * this class represent the turning off state
+ */
 public class turnOff implements ImovieDownloader{
 
 

@@ -1,3 +1,6 @@
+/**
+ * this class represent the professional user status.
+ */
 public class professional implements ImovieDownloader {
 
     private DownloaderMachine machine;
@@ -80,6 +83,7 @@ public class professional implements ImovieDownloader {
 
     @Override
     public void scoreChanged() {
+        //check for new status.
         if (machine.getScore() < 7 && machine.getScore() > 3){
             machine.setSpeedRate(1.2);
             father.setCurrState(father.getAdvanced());

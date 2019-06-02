@@ -1,3 +1,6 @@
+/**
+ * this class represent the queue of the requests.
+ */
 public class queueM implements ImovieDownloader {
 
 

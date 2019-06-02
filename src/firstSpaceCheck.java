@@ -1,6 +1,11 @@
+/*
+this class represent the first space check.
+ */
 public class firstSpaceCheck implements ImovieDownloader {
+
     DownloaderMachine machine;
     Download father;
+
     public firstSpaceCheck(DownloaderMachine dm, Download download) {
         this.father = download;
         this.machine = dm;
@@ -110,6 +115,8 @@ public class firstSpaceCheck implements ImovieDownloader {
     public void entry() {
         System.out.println("enter firstSpaceCheck state");
         int currentMovieSize =machine.getMovieSize();
+        //if current free space smaller then movie size need to change state
+        //to second check.
         if(machine.getCurrFreeSpace()>=currentMovieSize){
             machine.getCurrMachineState().initDownloadingStatus(currentMovieSize);
             father.setCurrState(father.getDownloadingMovie());

@@ -1,3 +1,6 @@
+/**
+ * this class represent the watch state.
+ */
 public class Watch implements ImovieDownloader{
 
     private DownloaderMachine machine;
@@ -12,8 +15,9 @@ public class Watch implements ImovieDownloader{
         this.machine = DM;
         this.father = father;
 
+        //sub states of the watch state.
         idleWatching = new idleWatching(DM,this);
-        pauseMovie = new pauseMovie(DM,this);
+        pauseMovie = new pauseMovie(this);
         watchingMovie = new WatchingMovie(DM,this);
         currState = idleWatching;
     }

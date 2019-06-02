@@ -1,3 +1,6 @@
+/*
+this class represent the idle state in the downloading state.
+ */
 public class idleDownloading implements ImovieDownloader{
     DownloaderMachine machine;
     Download father;

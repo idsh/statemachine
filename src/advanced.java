@@ -1,6 +1,11 @@
+/**
+ * this class represent an advanced status of the user.
+ */
 public class advanced implements ImovieDownloader {
 
+    //the machine.
     private DownloaderMachine machine;
+
     private userStatus father;
 
     public advanced(DownloaderMachine Dm, userStatus father){
@@ -78,12 +83,17 @@ public class advanced implements ImovieDownloader {
 
     }
 
+    /*
+        this function check if the status need to be change because of a score change of the user.
+     */
     @Override
     public void scoreChanged() {
+        //setting to a beginner status
         if (machine.getScore() < 4){
             machine.setSpeedRate(1);
             father.setCurrState(father.getBeginner());
         }
+        //setting to a professional status.
         else if (machine.getScore() > 6){
             machine.setSpeedRate(1.5);
             father.setCurrState(father.getProfessional());
@@ -115,11 +125,17 @@ public class advanced implements ImovieDownloader {
 
     }
 
+    /*
+    entering an advanced status.
+     */
     @Override
     public void entry() {
         System.out.println("enter advanced state");
     }
 
+    /*
+    exiting an advanced status.
+     */
     @Override
     public void exit() {
         System.out.println("exit advanced state");

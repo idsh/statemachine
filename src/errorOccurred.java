@@ -1,8 +1,12 @@
+/*
+this class represent the error during the downloading process
+ */
 public class errorOccurred implements ImovieDownloader, Runnable{
     private DownloaderMachine machine;
 
     private Download father;
 
+    //the thread of the class.
     private Thread errorThread = new Thread(this);
 
     public errorOccurred(DownloaderMachine dm, Download father) {
@@ -21,6 +25,7 @@ public class errorOccurred implements ImovieDownloader, Runnable{
                 return;
             }
         }
+        //check of the counter is 3, if it is deleting movie.
         if (counter == 3) {
             machine.setCurrFreeSpace(machine.getCurrFreeSpace() + machine.getMovieSize());
             father.setCurrState(father.getDeletingMovie());

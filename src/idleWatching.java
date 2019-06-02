@@ -1,3 +1,6 @@
+/*
+this class represent the idle state of the watching state.
+ */
 public class idleWatching implements ImovieDownloader  {
 
     private DownloaderMachine machine;
@@ -30,6 +33,7 @@ public class idleWatching implements ImovieDownloader  {
 
     @Override
     public void movieOn() {
+        //check of 20% of the movie was downloaded and if in download the current state is downloading.
         if (machine.getDownloadingStatus() / machine.getMovieSize() * 100 >= 20 &&
                 (father.getFather()).getDownloadState().getCurrState() instanceof downloadingMovie){
             father.setCurrState(father.getWatchingMovie());

@@ -1,9 +1,12 @@
+/*
+this class represent the whole downloading status.
+ */
 public class Download implements ImovieDownloader {
 
-    private DownloaderMachine machine;
     private internetOn father;
     private ImovieDownloader currState;
 
+    //all of the sub states of this state.
     private idleDownloading idleDownloading;
     private firstSpaceCheck firstSpaceCheck;
     private secondSpaceCheck secondSpaceCheck;
@@ -14,7 +17,6 @@ public class Download implements ImovieDownloader {
     public Download(DownloaderMachine DM, internetOn father){
         currState = new idleDownloading(DM,this);
         this.father = father;
-        this.machine = DM;
         idleDownloading = new idleDownloading(DM,this);
         firstSpaceCheck = new firstSpaceCheck(DM,this);
         secondSpaceCheck = new secondSpaceCheck(DM,this);
@@ -31,6 +33,10 @@ public class Download implements ImovieDownloader {
         return currState;
     }
 
+    /**
+     * setting the current state be the give one.
+     * @param currState - the given state.
+     */
     public void setCurrState(ImovieDownloader currState) {
         this.currState.exit();
         this.currState = currState;
@@ -60,6 +66,7 @@ public class Download implements ImovieDownloader {
     public downloadingMovie getDownloadingMovie() {
         return downloadingMovie;
     }
+
 
     @Override
     public void initDownloadingStatus(int movieSize) {

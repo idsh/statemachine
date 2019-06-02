@@ -1,11 +1,10 @@
+/*
+this class represent the internet off state.
+ */
 public class internetOff implements ImovieDownloader {
 
-    private DownloaderMachine machine;
-    private Internet father;
 
-    public internetOff(DownloaderMachine DM, Internet father){
-        this.father = father;
-        this.machine = DM;
+    public internetOff(){
     }
 
 

@@ -1,8 +1,12 @@
+/**
+ * this class represent the watching movie state.
+ */
 public class WatchingMovie implements ImovieDownloader,Runnable {
 
     private DownloaderMachine machine;
     private Watch father;
 
+    //the private thread of the state.
     private Thread watchingThread = new Thread(this);
 
     public WatchingMovie(DownloaderMachine Dm, Watch father){
@@ -12,7 +16,9 @@ public class WatchingMovie implements ImovieDownloader,Runnable {
 
     @Override
     public void run() {
+        //loop while the movie downloading is not done.
         while (machine.getDownloadingStatus() < machine.getMovieSize()){
+            //loop while the thread was not interrupted.
             while (!Thread.interrupted()) {
                 try {
                     Thread.sleep(1000);
@@ -21,10 +27,6 @@ public class WatchingMovie implements ImovieDownloader,Runnable {
                 }
             }
         }
-    }
-
-    public Thread getWatchingThread() {
-        return watchingThread;
     }
 
     public Watch getFather() {

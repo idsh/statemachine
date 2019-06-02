@@ -1,5 +1,9 @@
+/*
+this class represent deleting movie state.
+ */
 public class deletingMovie implements ImovieDownloader {
 
+    //the machine
     private DownloaderMachine machine;
     private Download father;
 
@@ -109,6 +113,12 @@ public class deletingMovie implements ImovieDownloader {
 
     }
 
+    /*
+    entering deleting movie state.
+    decreasing score by one.
+    remove the request.
+    change state to idle.
+     */
     @Override
     public void entry() {
         System.out.println("enter deletingMovie state");
@@ -118,6 +128,10 @@ public class deletingMovie implements ImovieDownloader {
         father.setCurrState(father.getIdleDownloading());
     }
 
+    /*
+    exiting deleting movie state.
+    using movie off event to change watching state.
+     */
     @Override
     public void exit() {
         machine.getCurrMachineState().movieOff();

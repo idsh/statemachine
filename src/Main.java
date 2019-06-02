@@ -1,17 +1,16 @@
 import java.util.Scanner;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.TimeUnit;
-
 
 public class Main {
 
     public static void main(String args[]) {
+
+        //init variables.
         Scanner myObj = new Scanner(System.in);
         String event;
 
         DownloaderMachine machine = new DownloaderMachine();
 
+        //menu for the user.
         System.out.println("enter your events by the following numbers : \n" +
                 "1 - turnOn \n" +
                 "2 - turnOff \n" +
@@ -29,17 +28,23 @@ public class Main {
                 "14 - change disk size");
         event = myObj.nextLine();
 
-
+        //stopping only when the machine state will be turn off.
         while (!event.equals("2")) {
 
-            swaitchMethod(machine,event,myObj);
+            switchMethod(machine,event,myObj);
 
             myObj = new Scanner(System.in);
             event = myObj.nextLine();
         }
     }
 
-    private static void swaitchMethod(DownloaderMachine machine,String event,Scanner myObj) {
+    /**
+     * this function gets the user input and active the right event.
+     * @param machine - the machine/
+     * @param event - the given event to execute.
+     * @param myObj - scanner for the user input.
+     */
+    private static void switchMethod(DownloaderMachine machine,String event,Scanner myObj) {
         switch(event) {
             case "1":
                 machine.currMachineState.turnOn();
@@ -54,9 +59,12 @@ public class Main {
                 machine.currMachineState.internetOff();
                 break;
             case "5":
+                //check the machine is on
                 if (machine.currMachineState instanceof turnOn) {
+                    //check the internet is on.
                     if (((turnOn)machine.currMachineState).getInternetState().getCurrState() instanceof internetOn) {
                         boolean done =false;
+                        //loop until number is entered.
                         while (!done){
                             System.out.println("please enter the file size");
                             myObj = new Scanner(System.in);
@@ -95,6 +103,7 @@ public class Main {
                 break;
             case "14":
                 boolean done =false;
+                //loop until number is entered.
                 while (!done){
                     System.out.println("please enter the disk size");
                     myObj = new Scanner(System.in);

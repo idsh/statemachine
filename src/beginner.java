@@ -1,5 +1,9 @@
+/*
+this class represent a beginner status of the user.
+ */
 public class beginner implements ImovieDownloader {
 
+    //the machine.
     private DownloaderMachine machine;
     private userStatus father;
 
@@ -78,12 +82,17 @@ public class beginner implements ImovieDownloader {
 
     }
 
+    /*
+        this function check if the status need to be change because of a score change of the user.
+     */
     @Override
     public void scoreChanged() {
+        //setting to a advanced status
         if (machine.getScore() > 3 && machine.getScore() < 7){
             machine.setSpeedRate(1.2);
             father.setCurrState(father.getAdvanced());
         }
+        //setting to a professional status
         else if (machine.getScore() > 6){
             machine.setSpeedRate(1.5);
             father.setCurrState(father.getProfessional());
@@ -115,11 +124,17 @@ public class beginner implements ImovieDownloader {
 
     }
 
+    /*
+    entering beginner status.
+     */
     @Override
     public void entry() {
         System.out.println("enter beginner state");
     }
 
+    /*
+    exiting beginner status.
+     */
     @Override
     public void exit() {
         System.out.println("exit beginner state");

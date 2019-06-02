@@ -1,4 +1,6 @@
-
+/**
+ * this class represent the status of the user.
+ */
 public class userStatus implements ImovieDownloader {
 
 
