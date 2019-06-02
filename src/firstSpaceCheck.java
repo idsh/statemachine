@@ -111,7 +111,6 @@ public class firstSpaceCheck implements ImovieDownloader {
         System.out.println("enter firstSpaceCheck state");
         int currentMovieSize =machine.getMovieSize();
         if(machine.getCurrFreeSpace()>=currentMovieSize){
-
             machine.getCurrMachineState().initDownloadingStatus(currentMovieSize);
             father.setCurrState(father.getDownloadingMovie());
         }

@@ -1,13 +1,32 @@
-import java.util.concurrent.TimeUnit;
-
-public class errorOccurred implements ImovieDownloader{
-
+public class errorOccurred implements ImovieDownloader, Runnable{
     private DownloaderMachine machine;
+
     private Download father;
+
+    private Thread errorThread = new Thread(this);
 
     public errorOccurred(DownloaderMachine dm, Download father) {
         machine = dm;
         this.father = father;
+    }
+
+    @Override
+    public void run() {
+        int counter = 0;
+        while (counter < 3 && !Thread.interrupted()) {
+            try {
+                Thread.sleep(1000);
+                counter++;
+            } catch (InterruptedException e) {
+                return;
+            }
+        }
+        if (counter == 3) {
+            machine.setCurrFreeSpace(machine.getCurrFreeSpace() + machine.getMovieSize());
+            father.setCurrState(father.getDeletingMovie());
+        }
+        else
+            father.setCurrState(father.getDownloadingMovie());
     }
 
     @Override
@@ -113,17 +132,13 @@ public class errorOccurred implements ImovieDownloader{
     @Override
     public void entry() {
         System.out.println("enter errorOccured state");
-        try {
-            TimeUnit.SECONDS.sleep(3);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        machine.setCurrFreeSpace(machine.getCurrFreeSpace() + machine.getMovieSize());
-        father.setCurrState(father.getDeletingMovie());
+        errorThread = new Thread(this);
+        errorThread.start();
     }
 
     @Override
     public void exit() {
+        errorThread.interrupt();
         System.out.println("exit errorOccured state");
     }
 
@@ -142,3 +157,4 @@ public class errorOccurred implements ImovieDownloader{
 
     }
 }
+

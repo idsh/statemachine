@@ -120,6 +120,7 @@ public class deletingMovie implements ImovieDownloader {
 
     @Override
     public void exit() {
+        machine.getCurrMachineState().movieOff();
         System.out.println("exit deletingMovie state");
     }
 

@@ -1,11 +1,35 @@
 import java.util.concurrent.TimeUnit;
 
-public class secondSpaceCheck implements ImovieDownloader {
+public class secondSpaceCheck implements ImovieDownloader, Runnable {
+
     DownloaderMachine machine;
     Download father;
+
+    private Thread secondCheckThread = new Thread(this);
+
     public secondSpaceCheck(DownloaderMachine dm, Download download) {
         this.father = download;
         this.machine = dm;
+    }
+
+    @Override
+    public void run() {
+        int counter = 0;
+        while (counter < 4 && !Thread.interrupted()) {
+            try {
+                Thread.sleep(1000);
+                counter++;
+            } catch (InterruptedException e) {
+                return;
+            }
+        }
+        if(machine.getCurrFreeSpace() >= machine.getMovieSize()){
+            machine.getCurrMachineState().initDownloadingStatus(machine.getMovieSize());
+            father.setCurrState(father.getDownloadingMovie());
+        }
+        else {
+            father.setCurrState(father.getDeletingMovie());
+        }
     }
 
     @Override
@@ -111,23 +135,13 @@ public class secondSpaceCheck implements ImovieDownloader {
     @Override
     public void entry() {
         System.out.println("enter secondSpaceCheck state");
-        try {
-            TimeUnit.SECONDS.sleep(4);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        if(machine.getCurrFreeSpace()>=machine.getMovieSize()){
-            machine.getCurrMachineState().initDownloadingStatus(machine.getMovieSize());
-            father.setCurrState(father.getDownloadingMovie());
-
-        }
-        else {
-            father.setCurrState(father.getDeletingMovie());
-        }
+        secondCheckThread = new Thread(this);
+        secondCheckThread.start();
     }
 
     @Override
     public void exit() {
+        secondCheckThread.interrupt();
         System.out.println("exit secondSpaceCheck state");
     }
 

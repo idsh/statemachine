@@ -16,7 +16,6 @@ public class downloadingMovie implements ImovieDownloader,Runnable {
     public void run() {
         while (!Thread.interrupted() && machine.getDownloadingStatus() < machine.getMovieSize()) {
             machine.setDownloadingStatus(machine.getDownloadingStatus() + machine.getSpeedRate());
-            System.out.println(machine.getDownloadingStatus());
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -75,6 +74,7 @@ public class downloadingMovie implements ImovieDownloader,Runnable {
     @Override
     public void downloadError() {
         father.setCurrState(father.getErrorOccurred());
+        machine.getCurrMachineState().movieOff();
     }
 
     @Override
@@ -138,10 +138,10 @@ public class downloadingMovie implements ImovieDownloader,Runnable {
 
     }
 
-
     @Override
     public void downloadingDone() {
         machine.setScore(machine.getScore() + 1);
+        machine.getCurrMachineState().movieOff();
         machine.getCurrMachineState().removeRequest();
         machine.getCurrMachineState().scoreChanged();
         father.setCurrState(father.getIdleDownloading());
@@ -161,6 +161,4 @@ public class downloadingMovie implements ImovieDownloader,Runnable {
     public void initDownloadingStatus(int movieSize) {
 
     }
-
-
 }

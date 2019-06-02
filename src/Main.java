@@ -9,9 +9,12 @@ public class Main {
     public static void main(String args[]) {
         Scanner myObj = new Scanner(System.in);
         String event;
+
+        DownloaderMachine machine = new DownloaderMachine();
+
         System.out.println("enter your events by the following numbers : \n" +
                 "1 - turnOn \n" +
-                "2 - tornOff \n" +
+                "2 - turnOff \n" +
                 "3 - internetOn \n" +
                 "4 - internetOff \n" +
                 "5 - fileRequest \n" +
@@ -25,9 +28,6 @@ public class Main {
                 "13 - resume  \n" +
                 "14 - change disk size");
         event = myObj.nextLine();
-
-        DownloaderMachine machine = new DownloaderMachine();
-
 
 
         while (!event.equals("2")) {

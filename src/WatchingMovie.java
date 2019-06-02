@@ -10,13 +10,11 @@ public class WatchingMovie implements ImovieDownloader,Runnable {
         this.father = father;
     }
 
-
     @Override
     public void run() {
         while (machine.getDownloadingStatus() < machine.getMovieSize()){
             while (!Thread.interrupted()) {
                 try {
-                    System.out.println("watcing");
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     return;
@@ -25,6 +23,13 @@ public class WatchingMovie implements ImovieDownloader,Runnable {
         }
     }
 
+    public Thread getWatchingThread() {
+        return watchingThread;
+    }
+
+    public Watch getFather() {
+        return father;
+    }
 
     @Override
     public void restartMovie() {
@@ -127,19 +132,6 @@ public class WatchingMovie implements ImovieDownloader,Runnable {
     }
 
     @Override
-    public void entry() {
-        System.out.println("enter WatchingMovie state");
-        watchingThread = new Thread(this);
-        watchingThread.start();
-    }
-
-    @Override
-    public void exit() {
-        watchingThread.interrupt();
-        System.out.println("exit WatchingMovie state");
-    }
-
-    @Override
     public ImovieDownloader getCurrState() {
         return null;
     }
@@ -152,6 +144,19 @@ public class WatchingMovie implements ImovieDownloader,Runnable {
     @Override
     public void initDownloadingStatus(int movieSize) {
 
+    }
+
+    @Override
+    public void entry() {
+        System.out.println("enter WatchingMovie state");
+        watchingThread = new Thread(this);
+        watchingThread.start();
+    }
+
+    @Override
+    public void exit() {
+        watchingThread.interrupt();
+        System.out.println("exit WatchingMovie state");
     }
 
 

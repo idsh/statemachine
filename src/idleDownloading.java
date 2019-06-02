@@ -49,7 +49,6 @@ public class idleDownloading implements ImovieDownloader{
     @Override
     public void fileRequest() {
         father.setCurrState(father.getFirstSpaceCheck());
-
     }
 
     @Override
